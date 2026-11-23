@@ -22,5 +22,3 @@ Người chơi xây dựng trang trại bằng trồng trọt, chăn nuôi và m
 - [UML v1 — sơ đồ lớp phân tầng](docs/design/diagrams/Class_Diagram_v1.png)
 - [Kiểm thử trồng trọt và kho — Vũ](docs/testing/plants.md)
 - [Quy tắc đóng góp](CONTRIBUTING.md)
-
-Quy đổi hiện tại: **1 ngày game = 5 phút thực** (300 giây). Ảnh UML giữ dữ liệu draw.io nhúng để chỉnh sửa.
