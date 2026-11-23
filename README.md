@@ -20,5 +20,6 @@ Người chơi xây dựng trang trại bằng trồng trọt, chăn nuôi và m
 - [Kiến trúc chung](docs/design/details/architecture.md)
 - Thiết kế: [Chăn nuôi](docs/design/details/animals.md) · [Thời gian](docs/design/details/time.md) · [Minigame](docs/design/details/minigames.md) · [Nhà chính](docs/design/details/main-house.md)
 - [UML v1 — sơ đồ lớp phân tầng](docs/design/diagrams/Class_Diagram_v1.png)
+- [Bố cục game](docs/design/layouts/game_layout.png)
 - [Kiểm thử trồng trọt và kho — Vũ](docs/testing/plants.md)
 - [Quy tắc đóng góp](CONTRIBUTING.md)
