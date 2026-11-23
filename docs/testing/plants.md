@@ -1,4 +1,6 @@
-# Kiểm thử phần Vũ
+# Kiểm thử trồng trọt, kho và tích hợp mua bán
+
+Người phụ trách: Vũ. Các mã ca kiểm thử V01–V14 được giữ nguyên; đây là kế hoạch kiểm thử, kết quả hiện tại đều là **Chưa chạy**.
 
 ## 1. Kiểm thử bằng chơi game
 
