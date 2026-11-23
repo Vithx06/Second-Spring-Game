@@ -18,36 +18,51 @@
 
 ## Thời gian phát triển và sản lượng cơ bản
 
-Quy đổi: **1 ngày game = 5 phút thực**. Các mốc dưới là thông số ban đầu để code và chơi thử, có thể cân bằng lại sau.
+Quy đổi: **1 ngày game = 5 phút thực**. Các phân hệ dùng chung GameClock; thời lượng được ghi và hiển thị theo ngày, giờ, phút game, không dùng số ngày thập phân.
 
-| Loại cây | Giai đoạn 1 (thực) | Giai đoạn 2 (thực) | Tổng đến lần chín đầu (thực) | Sản lượng gốc mỗi lần | Thu hoạch |
+| Loại cây | Giai đoạn 1 (game) | Giai đoạn 2 (game) | Tổng đến lần chín đầu (game) | Sản lượng gốc mỗi lần | Thu hoạch |
 |---|---|---|---|---:|---|
-| Lúa | 1 phút | 1 phút | 2 phút | 3 | Một lần |
-| Ngô | 1 phút 30 giây | 1 phút 30 giây | 3 phút | 3 | Một lần |
-| Mía | 2 phút | 2 phút | 4 phút | 3 | Một lần |
-| Hoa hồng | 1 phút 30 giây | 1 phút 30 giây | 3 phút | 2 | Một lần |
-| Hoa lan | 2 phút 30 giây | 2 phút 30 giây | 5 phút | 2 | Một lần |
-| Dâu tây | 2 phút | 2 phút | 4 phút | 3 | Nhiều đợt |
-| Táo | 4 phút | 4 phút | 8 phút | 4 | Nhiều đợt |
-| Cam | 5 phút | 5 phút | 10 phút | 4 | Nhiều đợt |
+| Lúa | 1 ngày | 1 ngày | 2 ngày | 3 | Một lần |
+| Ngô | 2 ngày | 2 ngày | 4 ngày | 3 | Một lần |
+| Mía | 2 ngày | 2 ngày | 4 ngày | 3 | Một lần |
+| Hoa hồng | 2 ngày | 2 ngày | 4 ngày | 2 | Một lần |
+| Hoa lan | 3 ngày | 3 ngày | 6 ngày | 2 | Một lần |
+| Dâu tây | 2 ngày | 2 ngày | 4 ngày | 3 | Nhiều đợt |
+| Táo | 4 ngày | 4 ngày | 8 ngày | 4 | Nhiều đợt |
+| Cam | 5 ngày | 5 ngày | 10 ngày | 4 | Nhiều đợt |
 
-- Tổng đến lần chín đầu đã gồm cả hai giai đoạn, không gồm thời gian chờ tưới; mỗi giai đoạn chỉ bắt đầu phát triển sau khi tưới.
-- Thông số chưa tính phân chín nhanh hoặc tổn thất năng suất.
-- Cây nhiều đợt giữ cây sau khi hái; thời gian tái thu hoạch và yêu cầu tưới của đợt mới chưa chốt.
-- Ví dụ: táo tưới đúng lúc chín sau 8 phút thực; nếu chờ tưới tổng cộng 1 phút thì chín sau 9 phút.
-- Chốt điều kiện thắng sau khi có vòng chơi thực tế và thử cân bằng kinh tế.
+- Tổng đã gồm hai giai đoạn, không gồm thời gian chờ tưới; mỗi giai đoạn chỉ bắt đầu phát triển sau khi tưới.
+- Đây là thông số cơ bản để chơi thử, chưa tính phân chín nhanh hoặc tổn thất năng suất.
+- Cây nhiều đợt giữ cây sau khi hái và áp dụng chu kỳ riêng bên dưới.
+- Chốt điều kiện thắng sau khi chơi thử và cân bằng kinh tế.
+
+## Chu kỳ cây thu hoạch nhiều đợt
+
+| Cây | Đến lứa đầu (game) | Thời gian phát triển mỗi lứa tiếp theo (game) | Sản lượng gốc mỗi lứa |
+|---|---|---|---:|
+| Dâu tây | 4 ngày | 1 ngày | 3 |
+| Táo | 8 ngày | 2 ngày | 4 |
+| Cam | 10 ngày | 2 ngày | 4 |
+
+- Sau khi hái, giữ nguyên cây trên đất; không xới hoặc gieo lại.
+- Mỗi lứa mới bắt đầu ở trạng thái cần nước. Đặt lại số lần tưới và bộ đếm thiếu nước.
+- Tưới một lần mới bắt đầu đếm thời gian phát triển của lứa tiếp theo; thời gian trong bảng không gồm chờ tưới.
+- Lứa tiếp theo chỉ có một lượt phát triển, không lặp lại hai giai đoạn lớn ban đầu.
+- Tiếp tục dùng quy tắc tưới quá mức và ngưỡng thiếu nước chung.
+- Không đặt lại lượt bón phân hoặc tổn thất năng suất khi sang lứa mới; chúng thuộc vòng đời của cây.
 
 ## Ngưỡng thiếu nước chung
 
-| Mốc tính từ khi bắt đầu cần nước | Thời gian thực | Kết quả |
-|---|---|---|
-| 9 giờ 36 phút game | 2 phút | Giảm 25% sản lượng gốc |
-| 19 giờ 12 phút game | 4 phút | Cây chết nếu vẫn chưa được tưới |
+| Thời gian game từ lúc bắt đầu cần nước | Kết quả |
+|---|---|
+| 12 giờ | Giảm 25% sản lượng gốc |
+| 1 ngày (24 giờ) | Cây chết nếu vẫn chưa được tưới |
 
-- Áp dụng giống nhau cho mọi loại cây và cả hai giai đoạn.
-- Hai mốc cùng tính từ lúc bắt đầu chờ nước, không cộng nối tiếp. Bộ đếm thiếu nước không chạy khi cây đã được tưới và đang phát triển.
-- Khi được tưới, dừng và đặt lại bộ đếm thiếu nước; sang giai đoạn mới bắt đầu lượt chờ nước mới.
-- Mức phạt năng suất chỉ áp dụng một lần trong vòng đời, không phục hồi sau tưới và không cộng dồn.
+- Dùng chung cho mọi loại cây và cả hai giai đoạn.
+- Hai mốc cùng tính từ lúc bắt đầu chờ nước, không cộng nối tiếp.
+- Đã tưới thì dừng và đặt lại bộ đếm thiếu nước; bộ đếm không chạy khi cây đang phát triển.
+- Sang giai đoạn mới bắt đầu lượt chờ nước mới.
+- Chỉ phạt năng suất một lần/vòng đời, không phục hồi sau tưới và không cộng dồn.
 
 ## Phân và sản lượng
 
@@ -67,4 +82,4 @@ Quy đổi: **1 ngày game = 5 phút thực**. Các mốc dưới là thông s�
 
 ## Phạm vi
 
-Dự kiến lúa, ngô, mía, táo, cam, dâu tây, hồng, lan. Làm cây thu hoạch một lần trước; cơ chế cây nhiều vụ, nhà kính và sâu bệnh thuộc mở rộng.
+Dự kiến lúa, ngô, mía, táo, cam, dâu tây, hồng, lan. Triển khai cây thu hoạch một lần trước, sau đó cây nhiều đợt theo chu kỳ đã chốt; nhà kính và sâu bệnh thuộc mở rộng.

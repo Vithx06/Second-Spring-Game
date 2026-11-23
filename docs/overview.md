@@ -4,7 +4,7 @@
 - Mục tiêu: đạt lợi nhuận và số thành tựu yêu cầu trong 365 ngày game; hết hạn chưa đạt thì chơi lại.
 - Vòng chơi: mua giống → trồng trọt, chăn nuôi → thu sản phẩm → bán → tái đầu tư.
 - Trồng trọt và chăn nuôi dùng chung kho, ví tiền và đồng hồ.
-- Thời gian: 5 phút thực = 24 giờ game; ánh sáng thay đổi theo ngày đêm.
+- Thời gian: 5 phút thực = 1 ngày game. Dùng chung GameClock; thời lượng hiển thị bằng ngày, giờ, phút game. Thời gian chạy liên tục, chưa có tua ngày/timeskip; ánh sáng thay đổi theo ngày đêm.
 - Kho: 100 ô, mỗi ô chứa một loại vật phẩm; không đủ chỗ thì không nhận thêm. Không làm thông báo hết hạn trong kho.
 - Thực vật: xới đất → gieo → tưới, bón phân → thu hoạch → dọn tàn dư. Cuốc có sẵn, dùng vĩnh viễn, không cần mua.
 - Vật nuôi: gà, vịt, bò, lợn, cá; chăm sóc để trưởng thành và thu sản phẩm.
