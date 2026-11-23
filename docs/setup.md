@@ -112,6 +112,13 @@ Bấm vào từng thư mục để mở hoặc thu gọn. Các mục dưới đ�
 
 </details>
 
+<details>
+<summary>📁 layouts — bố cục game</summary>
+
+- `game_layout.png`: hình minh họa bố cục nông trại và vị trí các công trình.
+
+</details>
+
 </details>
 
 <details>
