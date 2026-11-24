@@ -52,17 +52,18 @@ public static class VinhPrototypeBuilder
         view.barns=Array.ConvertAll(ids,id=>objects[id]);
         view.empty=Array.ConvertAll(ids,LoadSprite);
         view.occupied=Array.ConvertAll(ids,id=>LoadSprite(id+"_full"));
-        for(int i=0;i<ids.Length;i++) view.barns[i].sprite=view.occupied[i];
-        view.swimmers=new SpriteRenderer[4];
-        for(int i=0;i<4;i++)
+        for(int i=0;i<ids.Length;i++) view.barns[i].sprite=view.empty[i];
+        view.swimmers=new SpriteRenderer[3];
+        for(int i=0;i<3;i++)
         {
             var fish=Create("Cá bơi "+(i+1),"swimmer",view.pond.transform,80+i);
             fish.transform.localPosition=new Vector3(-.18f+i*.14f,.15f+i*.035f,0);
-            fish.transform.localScale=Vector3.one*.47f;fish.enabled=i<3;view.swimmers[i]=fish;
+            fish.transform.localScale=Vector3.one*.47f;fish.enabled=false;view.swimmers[i]=fish;
         }
         view.world=layers.ToArray();
         view.frame=LoadTexture("parchment");view.calendar=LoadTexture("calendar");view.dial=LoadTexture("clock");
         view.hole=LoadTexture("hole");view.moleArt=LoadTexture("mole");
+        ConfigureAudio(view);
         if(!EditorSceneManager.SaveScene(scene,ScenePath)) throw new Exception("Không lưu được scene.");
         AssetDatabase.SaveAssets();
     }
@@ -80,6 +81,32 @@ public static class VinhPrototypeBuilder
         return result;
     }
     static Texture2D LoadTexture(string id) => LoadSprite(id).texture;
+
+    static void ConfigureAudio(VinhPrototypeView view)
+    {
+        string[] guids=AssetDatabase.FindAssets("t:AudioClip",new[] { "Assets/VinhPrototype/Nhacnen_farm" });
+        var paths=Array.ConvertAll(guids,AssetDatabase.GUIDToAssetPath);
+        Array.Sort(paths,StringComparer.Ordinal);
+        view.musicTracks=Array.ConvertAll(paths,AssetDatabase.LoadAssetAtPath<AudioClip>);
+        const string effects="Assets/VinhPrototype/Nhacclick_farm/Audio/";
+        view.clickSound=AssetDatabase.LoadAssetAtPath<AudioClip>(effects+"click_001.ogg");
+        view.openSound=view.clickSound;
+        view.closeSound=view.clickSound;
+        if (view.musicTracks.Length==0 || !view.clickSound || !view.openSound || !view.closeSound)
+            throw new Exception("Thiếu nhạc nền hoặc hiệu ứng âm thanh của prototype.");
+    }
+
+    [MenuItem("Second Spring/Cập nhật âm thanh prototype")]
+    public static void UpdateSceneAudio()
+    {
+        if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+        var scene=EditorSceneManager.OpenScene(ScenePath,OpenSceneMode.Single);
+        var view=UnityEngine.Object.FindAnyObjectByType<VinhPrototypeView>();
+        if (!view) throw new Exception("Không tìm thấy VinhPrototypeView trong scene.");
+        ConfigureAudio(view);
+        EditorUtility.SetDirty(view);
+        if (!EditorSceneManager.SaveScene(scene)) throw new Exception("Không lưu được scene.");
+    }
  public static void TestRules() {
   var f=new Farm(); if(f.Day!=1||f.Minute!=420) throw new System.Exception("Clock start");
   f.Add(0,Species.Chicken); if(!f.FeedPen(0)||f.FeedPen(0)||f.Feed[0]!=19)throw new System.Exception("Feeding");
