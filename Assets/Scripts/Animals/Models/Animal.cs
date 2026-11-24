@@ -21,5 +21,13 @@ namespace SecondSpring.Animals
         }
 
         public bool IsAdult() => GrowthStage == GrowthStage.Adult;
+
+        internal void AdvanceOneDay(bool penFed)
+        {
+            Age++;
+            if (!penFed || IsAdult()) return;
+            GrowthProgress++;
+            if (GrowthProgress >= Profile.MaturityDays) GrowthStage = GrowthStage.Adult;
+        }
     }
 }
