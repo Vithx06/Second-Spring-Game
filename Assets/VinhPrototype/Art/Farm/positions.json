@@ -1,0 +1,172 @@
+{
+  "layers": [
+    {
+      "id": "meadow",
+      "x": 0,
+      "y": 169,
+      "width": 1672,
+      "height": 772,
+      "group": "Ground"
+    },
+    {
+      "id": "horizon",
+      "x": 0,
+      "y": 0,
+      "width": 1672,
+      "height": 169,
+      "group": "Ground"
+    },
+    {
+      "id": "windmill",
+      "x": 95,
+      "y": 99,
+      "width": 175,
+      "height": 225,
+      "group": "Scenery"
+    },
+    {
+      "id": "storehouse",
+      "x": 280,
+      "y": 122,
+      "width": 316,
+      "height": 194,
+      "group": "Scenery"
+    },
+    {
+      "id": "house",
+      "x": 630,
+      "y": 54,
+      "width": 418,
+      "height": 265,
+      "group": "Buildings"
+    },
+    {
+      "id": "workshop",
+      "x": 1080,
+      "y": 97,
+      "width": 490,
+      "height": 224,
+      "group": "Scenery"
+    },
+    {
+      "id": "pond",
+      "x": 23,
+      "y": 334,
+      "width": 244,
+      "height": 268,
+      "group": "Buildings"
+    },
+    {
+      "id": "duck",
+      "x": 41,
+      "y": 574,
+      "width": 255,
+      "height": 186,
+      "group": "Buildings"
+    },
+    {
+      "id": "pig",
+      "x": 986,
+      "y": 297,
+      "width": 339,
+      "height": 147,
+      "group": "Buildings"
+    },
+    {
+      "id": "cow",
+      "x": 991,
+      "y": 441,
+      "width": 332,
+      "height": 124,
+      "group": "Buildings"
+    },
+    {
+      "id": "chicken",
+      "x": 991,
+      "y": 559,
+      "width": 333,
+      "height": 125,
+      "group": "Buildings"
+    },
+    {
+      "id": "market",
+      "x": 128,
+      "y": 749,
+      "width": 459,
+      "height": 130,
+      "group": "Scenery"
+    },
+    {
+      "id": "gate",
+      "x": 668,
+      "y": 691,
+      "width": 330,
+      "height": 186,
+      "group": "Scenery"
+    },
+    {
+      "id": "garden",
+      "x": 687,
+      "y": 416,
+      "width": 285,
+      "height": 245,
+      "group": "Scenery"
+    },
+    {
+      "id": "fountain",
+      "x": 779,
+      "y": 309,
+      "width": 117,
+      "height": 88,
+      "group": "Scenery"
+    },
+    {
+      "id": "plot_0",
+      "x": 270,
+      "y": 349,
+      "width": 141,
+      "height": 266,
+      "group": "Scenery"
+    },
+    {
+      "id": "plot_1",
+      "x": 411,
+      "y": 349,
+      "width": 127,
+      "height": 266,
+      "group": "Scenery"
+    },
+    {
+      "id": "plot_2",
+      "x": 538,
+      "y": 348,
+      "width": 137,
+      "height": 267,
+      "group": "Scenery"
+    },
+    {
+      "id": "plot_3",
+      "x": 1364,
+      "y": 345,
+      "width": 274,
+      "height": 289,
+      "group": "Scenery"
+    },
+    {
+      "id": "plot_4",
+      "x": 298,
+      "y": 645,
+      "width": 380,
+      "height": 102,
+      "group": "Scenery"
+    },
+    {
+      "id": "plot_5",
+      "x": 990,
+      "y": 667,
+      "width": 621,
+      "height": 101,
+      "group": "Scenery"
+    }
+  ]
+}
