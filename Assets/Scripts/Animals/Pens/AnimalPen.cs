@@ -16,6 +16,7 @@ namespace SecondSpring.Animals
         public int Capacity { get; }
         public IReadOnlyList<Animal> Animals => _readOnlyAnimals;
         public int FedDay => _fedDay;
+        public int StoredProducts { get; private set; }
 
         public AnimalPen(AnimalType animalType)
         {
@@ -46,6 +47,10 @@ namespace SecondSpring.Animals
         internal bool RemoveAnimal(Animal animal) => _animals.Remove(animal);
 
         internal bool WasFed(Animal animal, int day) => _fedDay == day && _fedAnimals.Contains(animal);
+
+        internal void StoreProducts(int quantity) => StoredProducts = checked(StoredProducts + quantity);
+
+        internal void RemoveStoredProducts(int quantity) => StoredProducts -= quantity;
 
         public PenStatus GetStatus(int day, int hour)
         {

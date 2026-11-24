@@ -26,9 +26,61 @@ namespace SecondSpring.Animals
             {
                 AnimalPen pen = _pens.GetPen(type);
                 IAnimalGrowthStrategy strategy = CreateStrategy(type);
-                foreach (Animal animal in pen.Animals) strategy.AdvanceGrowth(animal, pen.WasFed(animal, _currentDay));
+                foreach (Animal animal in pen.Animals)
+                {
+                    bool fed = pen.WasFed(animal, _currentDay);
+                    strategy.AdvanceGrowth(animal, fed);
+                    AnimalProfile profile = animal.Profile;
+                    if (fed && animal.IsAdult() && profile.ProductionCycleDays > 0 &&
+                        (animal.Age - animal.MaturityAge) % profile.ProductionCycleDays == 0)
+                        pen.StoreProducts(profile.ProductUnits);
+                }
             }
             _currentDay = day;
+        }
+
+        // The callback atomically stores up to the offered quantity and returns the amount accepted.
+        public int CollectProducts(AnimalType type, Func<AnimalProductType, int, int> tryStore)
+        {
+            if (tryStore == null) throw new ArgumentNullException(nameof(tryStore));
+            AnimalProductType product;
+            switch (type)
+            {
+                case AnimalType.Chicken: product = AnimalProductType.ChickenEgg; break;
+                case AnimalType.Duck: product = AnimalProductType.DuckEgg; break;
+                case AnimalType.Cow: product = AnimalProductType.CowMilk; break;
+                default: return 0;
+            }
+            AnimalPen pen = _pens.GetPen(type);
+            int available = pen.StoredProducts;
+            if (available == 0) return 0;
+            int accepted = tryStore(product, available);
+            if (accepted < 0 || accepted > available) throw new InvalidOperationException("Invalid accepted product quantity.");
+            pen.RemoveStoredProducts(accepted);
+            return accepted;
+        }
+
+        // The callback must store all meat or none and report success.
+        public bool CollectMeat(AnimalType type, int animalId, Func<AnimalProductType, int, bool> tryStore)
+        {
+            if (tryStore == null) throw new ArgumentNullException(nameof(tryStore));
+            AnimalProductType product;
+            switch (type)
+            {
+                case AnimalType.Chicken: product = AnimalProductType.ChickenMeat; break;
+                case AnimalType.Duck: product = AnimalProductType.DuckMeat; break;
+                case AnimalType.Pig: product = AnimalProductType.PigMeat; break;
+                case AnimalType.Cow: product = AnimalProductType.CowMeat; break;
+                default: return false;
+            }
+            AnimalPen pen = _pens.GetPen(type);
+            foreach (Animal animal in pen.Animals)
+            {
+                if (animal.Id != animalId || !animal.IsAdult()) continue;
+                if (!tryStore(product, animal.Profile.MeatYield)) return false;
+                return pen.RemoveAnimal(animal);
+            }
+            return false;
         }
 
         private static IAnimalGrowthStrategy CreateStrategy(AnimalType type)

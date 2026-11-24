@@ -10,6 +10,7 @@ namespace SecondSpring.Animals
         public int GrowthProgress { get; private set; }
         public GrowthStage GrowthStage { get; private set; }
         public AnimalProfile Profile { get; }
+        internal int MaturityAge { get; private set; }
 
         protected Animal(int id, AnimalProfile profile)
         {
@@ -27,7 +28,11 @@ namespace SecondSpring.Animals
             Age++;
             if (!penFed || IsAdult()) return;
             GrowthProgress++;
-            if (GrowthProgress >= Profile.MaturityDays) GrowthStage = GrowthStage.Adult;
+            if (GrowthProgress >= Profile.MaturityDays)
+            {
+                GrowthStage = GrowthStage.Adult;
+                MaturityAge = Age;
+            }
         }
     }
 }

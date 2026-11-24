@@ -58,7 +58,8 @@ Sang ngày mới, chuồng chưa được cho ăn bị tính là bỏ lỡ ngày
 ## Thu sản phẩm
 
 - Chỉ con trưởng thành mới cho sản phẩm.
+- Trứng và sữa được tạo ngay trong ngày con vật trưởng thành; các lần tiếp theo theo chu kỳ của loài.
 - Trứng/sữa tích lũy tại chuồng; người chơi chủ động thu vào kho dùng chung.
-- Lấy thịt sẽ loại con vật tương ứng khỏi chuồng. Không bán động vật sống.
+- Nếu kho chỉ nhận được một phần trứng/sữa, thu phần đó và giữ phần còn lại tại chuồng.
+- Người chơi chọn từng con trưởng thành để lấy thịt; lấy thịt thành công sẽ loại con đó khỏi chuồng. Không bán động vật sống.
 - Chỉ câu cá trưởng thành có trong ao; mỗi lượt thành công giảm một con cá tương ứng trong ao. Luật chơi tại minigame.
-- Cách xử lý thu sản phẩm khi kho đầy, chọn cá thể lấy thịt và thời điểm sản xuất đầu tiên chưa chốt; cần thống nhất khi triển khai.
