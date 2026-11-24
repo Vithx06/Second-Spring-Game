@@ -31,12 +31,13 @@ Loài chưa có cá trưởng thành trong ao bị loại khỏi lựa chọn. P
 - Có 9 ô (3×3); chuột chui lên ngẫu nhiên, người chơi click để đập.
 - Mỗi lượt kéo dài **30 giây thực tế**, bắt đầu với **3 mạng**.
 - Chuột chui xuống mà chưa bị đập thì mất 1 mạng.
-- Thắng khi đập ít nhất **15 con** trong 30 giây và còn tối thiểu **1 mạng**.
+- Thắng khi đập ít nhất **20 con** trong 30 giây và còn tối thiểu **1 mạng**.
 - Thua không mất gì; thắng nhận **3 đơn vị phân bón ngẫu nhiên**.
+- Đề xuất ban đầu: mỗi lượt chỉ có một con chuột; chuột xuất hiện tại một trong 9 ô trong tối đa **30/22 giây thực** (khoảng 1,36 giây) rồi chui xuống. Nếu đập sớm, chuột tiếp theo xuất hiện khi hết khoảng thời gian đó. Có 22 cơ hội trong 30 giây, cho phép bỏ lỡ tối đa 2 con mà vẫn đạt 20 con; thông số có thể điều chỉnh sau khi chơi thử.
+- Khi thắng, chọn ngẫu nhiên một trong hai loại phân tăng năng suất hoặc phân chín nhanh, mỗi loại có xác suất 50%; nhận 3 đơn vị cùng loại. Phần thưởng dự kiến cộng trực tiếp vào kho khi tích hợp.
 
 ## Chưa chốt
 
 - Tốc độ thanh Timing, kích thước vùng chính xác và thời lượng lượt câu.
-- Tốc độ xuất hiện chuột và độ khó chi tiết.
-- Cách chọn loại phân ngẫu nhiên và xử lý phần thưởng khi kho không đủ chỗ.
+- Xử lý phần thưởng khi kho không đủ chỗ.
 - Giao diện, sprite, âm thanh, hoạt ảnh và hiệu ứng.
