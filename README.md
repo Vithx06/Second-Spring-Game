@@ -13,7 +13,7 @@ Người chơi xây dựng trang trại bằng trồng trọt, chăn nuôi và m
 ## Ý tưởng và phạm vi
 
 - Cốt truyện: nhân vật tốt nghiệp, chưa có việc, về quê thăm ông và nhận thử thách khởi nghiệp trên mảnh đất bỏ hoang.
-- Mục tiêu: đạt số tiền mục tiêu trong ví và đã nhận ít nhất 25/30 thành tựu trong 365 ngày game; thắng ngay khi đồng thời đủ điều kiện. Nếu chưa thắng thì thất bại lúc 00:00 ngày 366. Mục tiêu tiền chưa chốt; danh sách thành tựu xem Nhà chính.
+- Mục tiêu: có ít nhất 100.000 xu trong ví và đã nhận ít nhất 25/30 thành tựu trong 365 ngày game; thắng ngay khi đồng thời đủ điều kiện. Nếu chưa thắng thì thất bại lúc 00:00 ngày 366. Danh sách thành tựu xem Nhà chính.
 - Vòng chơi: mua giống → trồng trọt, chăn nuôi → thu sản phẩm → bán → tái đầu tư.
 - Trồng trọt và chăn nuôi dùng chung kho, ví tiền và đồng hồ.
 - Thời gian: 5 phút thực = 1 ngày game, bắt đầu ngày 1 lúc 07:00. Dùng chung GameClock; thời lượng hiển thị bằng ngày, giờ, phút game. Không Pause, chỉnh tốc độ hoặc tua ngày; đồng hồ vẫn chạy khi mở giao diện và chơi minigame, chỉ tạm ngừng cập nhật trong lúc lưu. Thời gian không chạy sau khi thoát game; xem thời gian và ánh sáng.

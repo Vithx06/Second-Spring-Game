@@ -71,10 +71,10 @@ Xem thêm quy tắc thời gian.
 Thắng ngay khi đồng thời thỏa mãn:
 
 1. Đã nhận ít nhất **25/30 thành tựu**.
-2. Đạt **số tiền mục tiêu** trong ví chung.
+2. Có ít nhất **100.000 xu** trong ví chung.
 3. Chưa hết thời hạn **365 ngày game**.
 
-Nếu chưa thắng thì thất bại lúc **00:00 ngày 366**. Số tiền mục tiêu chưa chốt; chưa có cơ sở đặt một giá trị mặc định hoặc đổi điều kiện này thành lợi nhuận tích lũy.
+Nếu chưa thắng thì thất bại lúc **00:00 ngày 366**. Mục tiêu tiền tính theo số dư hiện có trong ví, không phải tiền tích lũy đã kiếm.
 
 ## Hiển thị tiến độ
 
@@ -83,5 +83,5 @@ Nếu chưa thắng thì thất bại lúc **00:00 ngày 366**. Số tiền mụ
 
 ## Nội dung còn mở
 
-- Số tiền mục tiêu và phân công cụ thể 30 thành tựu cho hai thành viên.
+- Phân công cụ thể 30 thành tựu cho hai thành viên.
 - Cấu trúc file lưu game và chi tiết triển khai, kiểm thử.
