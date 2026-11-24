@@ -20,7 +20,7 @@ namespace SecondSpring.Minigames
 
     // Mỗi đối tượng tương ứng một lượt câu. Kết quả được chọn trước;
     // thao tác giật cần chỉ quyết định người chơi có nhận được kết quả đó không.
-    public sealed class FishingMinigame
+    public sealed class FishingMinigame : Minigame<FishingResult>
     {
         private static readonly FishingCatch[] Catches = {
             FishingCatch.Perch, FishingCatch.Carp, FishingCatch.Sturgeon,
@@ -29,8 +29,11 @@ namespace SecondSpring.Minigames
         private static readonly int[] Weights = { 35, 25, 10, 10, 10, 10 };
         private readonly double _zoneStart;
         private readonly double _zoneEnd;
-        public FishingCatch SelectedCatch { get; }
-        public bool IsFinished { get; private set; }
+        private readonly HashSet<FishingCatch> _available;
+        private readonly double _roll;
+        private double _position;
+        private FishingOutcome _outcome;
+        public FishingCatch SelectedCatch { get; private set; }
 
         // roll là số ngẫu nhiên phân bố đều trong [0, 1). Vị trí và hai đầu
         // vùng chính xác được chuẩn hóa từ 0 đến 1 trên thanh câu.
@@ -40,37 +43,53 @@ namespace SecondSpring.Minigames
             if (double.IsNaN(roll) || roll < 0 || roll >= 1) throw new ArgumentOutOfRangeException(nameof(roll));
             if (double.IsNaN(zoneStart) || double.IsNaN(zoneEnd) || zoneStart < 0 || zoneEnd > 1 || zoneStart >= zoneEnd)
                 throw new ArgumentOutOfRangeException(nameof(zoneStart));
-            var available = new HashSet<FishingCatch>();
+            _available = new HashSet<FishingCatch>();
             foreach (var fish in adultFish)
             {
                 if (fish != FishingCatch.Perch && fish != FishingCatch.Carp && fish != FishingCatch.Sturgeon)
                     throw new ArgumentException("Only fish species are allowed.", nameof(adultFish));
-                available.Add(fish);
+                _available.Add(fish);
             }
-            // Ba loại rác luôn có tổng trọng số 30. Chỉ cộng trọng số của
-            // những loài có cá trưởng thành, sau đó chọn trong tổng còn lại;
-            // nhờ vậy tỷ lệ giữa các kết quả hợp lệ vẫn được giữ nguyên.
-            int total = 30;
-            for (int i = 0; i < 3; i++) if (available.Contains(Catches[i])) total += Weights[i];
-            double selection = roll * total;
-            for (int i = 0; i < Catches.Length; i++)
-            {
-                if (i < 3 && !available.Contains(Catches[i])) continue;
-                selection -= Weights[i];
-                if (selection < 0) { SelectedCatch = Catches[i]; break; }
-            }
+            _roll = roll;
             _zoneStart = zoneStart;
             _zoneEnd = zoneEnd;
         }
 
+        protected override void Setup()
+        {
+            // Ba loại rác luôn có tổng trọng số 30. Chỉ cộng trọng số của
+            // những loài có cá trưởng thành, sau đó chọn trong tổng còn lại;
+            // nhờ vậy tỷ lệ giữa các kết quả hợp lệ vẫn được giữ nguyên.
+            int total = 30;
+            for (int i = 0; i < 3; i++) if (_available.Contains(Catches[i])) total += Weights[i];
+            double selection = _roll * total;
+            for (int i = 0; i < Catches.Length; i++)
+            {
+                if (i < 3 && !_available.Contains(Catches[i])) continue;
+                selection -= Weights[i];
+                if (selection < 0) { SelectedCatch = Catches[i]; break; }
+            }
+        }
+
+        // Câu cá chờ người chơi giật cần; chuyển động thanh do tầng giao diện cung cấp.
+        protected override void PlayCore() { }
+
         public FishingResult Pull(double position)
         {
-            if (IsFinished) throw new InvalidOperationException("This attempt has already ended.");
+            if (!IsStarted || IsFinished) throw new InvalidOperationException("This attempt is not active.");
             if (double.IsNaN(position) || position < 0 || position > 1) throw new ArgumentOutOfRangeException(nameof(position));
-            IsFinished = true;
-            if (position < _zoneStart || position > _zoneEnd) return new FishingResult(FishingOutcome.Miss, null);
-            bool fish = SelectedCatch == FishingCatch.Perch || SelectedCatch == FishingCatch.Carp || SelectedCatch == FishingCatch.Sturgeon;
-            return new FishingResult(fish ? FishingOutcome.Fish : FishingOutcome.Trash, SelectedCatch);
+            _position = position;
+            return Complete();
         }
+
+        protected override void EvaluateResult()
+        {
+            if (_position < _zoneStart || _position > _zoneEnd) { _outcome = FishingOutcome.Miss; return; }
+            bool fish = SelectedCatch == FishingCatch.Perch || SelectedCatch == FishingCatch.Carp || SelectedCatch == FishingCatch.Sturgeon;
+            _outcome = fish ? FishingOutcome.Fish : FishingOutcome.Trash;
+        }
+
+        protected override FishingResult BuildReward() =>
+            new FishingResult(_outcome, _outcome == FishingOutcome.Miss ? (FishingCatch?)null : SelectedCatch);
     }
 }
