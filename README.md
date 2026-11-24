@@ -62,9 +62,18 @@ Code nghiệp vụ chính nằm trong `Assets/Scripts/`; code chơi thử nằm 
 Second-Spring-Game/
 ├── Assets/
 │   ├── Scripts/                  # Code game chính, chia theo chức năng
-│   │   ├── Achievements/         # Thành tựu
-│   │   ├── Animals/              # Chăn nuôi
-│   │   ├── Economy/              # Ví tiền
+│   │   ├── Model/                # Dữ liệu và nghiệp vụ game
+│   │   │   ├── Achievements/     # Thành tựu
+│   │   │   ├── Animals/          # Chăn nuôi
+│   │   │   ├── Economy/          # Ví tiền
+│   │   │   ├── Inventory/        # Kho, vật phẩm
+│   │   │   ├── MainHouse/        # Điều kiện thắng/thua
+│   │   │   ├── Minigames/        # Trò chơi nhỏ
+│   │   │   ├── Plants/           # Cây trồng và ô đất
+│   │   │   ├── Shop/             # Mua bán
+│   │   │   └── Time/             # Đồng hồ chung
+│   │   ├── Controllers/          # Điều phối thao tác; chưa triển khai
+│   │   ├── Views/                # Giao diện chính; chưa triển khai
 │   │   ├── Exceptions/           # Ngoại lệ nghiệp vụ dự kiến
 │   │   │   ├── Animals/          # Chuồng và vật nuôi
 │   │   │   ├── Economy/          # Ví tiền
@@ -72,15 +81,8 @@ Second-Spring-Game/
 │   │   │   ├── Plants/           # Trồng trọt
 │   │   │   ├── Shop/             # Giao dịch
 │   │   │   └── Time/             # Đồng hồ game
-│   │   ├── Inventory/            # Kho, vật phẩm
-│   │   ├── MainHouse/            # Nhà chính và điều kiện thắng/thua
-│   │   ├── Minigames/            # Trò chơi nhỏ
-│   │   ├── Plants/               # Cây trồng và ô đất
 │   │   ├── Save/                 # Lưu và tải
-│   │   ├── Shared/               # Interface và thành phần dùng chung
-│   │   ├── Shop/                 # Mua bán
-│   │   ├── Time/                 # Đồng hồ chung
-│   │   └── UI/                   # Giao diện
+│   │   └── Shared/               # Interface và thành phần dùng chung
 │   ├── Art/                      # Hình ảnh dùng chung
 │   ├── Audio/                    # Nhạc và hiệu ứng
 │   ├── Data/                     # Dữ liệu cấu hình game
@@ -97,7 +99,7 @@ Second-Spring-Game/
 │   │   ├── Scenes/               # Scene vinh_prototype
 │   │   ├── Scripts/              # Logic và giao diện chơi thử
 │   │   └── README.md             # Hướng dẫn chơi thử
-│   ├── VuPrototype/              # Thư mục chơi thử của Vũ, hiện còn trống
+│   ├── VuPrototype/              # Bản chơi thử của Vũ
 │   │   ├── Art/                  # Hình ảnh chơi thử
 │   │   ├── Editor/               # Công cụ Unity Editor
 │   │   ├── Scenes/               # Scene chơi thử
@@ -130,5 +132,6 @@ Các class trong `Assets/Scripts/Exceptions/` là ngoại lệ dự kiến, chư
 - [Chăn nuôi](docs/requirements/animals/rules.md) · [Bảng giá](docs/requirements/animals/prices.md)
 - [Kho](docs/requirements/shared/inventory.md) · [Thời gian](docs/requirements/shared/time.md) · [Minigame](docs/requirements/shared/minigames.md) · [Nhà chính và thành tựu](docs/requirements/shared/main-house.md)
 - [UML v1 — sơ đồ lớp phân tầng](docs/design/diagrams/Class_Diagram_v1.png)
+- [Kiến trúc MVC và hướng dẫn sử dụng](docs/mvc-architecture.md)
 - [Bố cục game](docs/design/layouts/game_layout.png)
 - [Quy tắc đóng góp](CONTRIBUTING.md)
