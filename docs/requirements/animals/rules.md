@@ -1,6 +1,6 @@
 # Luật chăn nuôi — Vinh
 
-Xem thêm [bảng giá](prices.md), [thiết kế chăn nuôi](../../design/details/animals.md) và [thời gian chung](../time.md).
+Xem thêm bảng giá và thời gian chung.
 
 ## Loài và sinh trưởng
 
@@ -57,7 +57,7 @@ Sang ngày mới, chuồng chưa được cho ăn bị tính là bỏ lỡ ngày
 ## Thu sản phẩm
 
 - Chỉ con trưởng thành mới cho sản phẩm.
-- Trứng/sữa tích lũy tại chuồng; người chơi chủ động thu vào [kho dùng chung](../inventory.md).
+- Trứng/sữa tích lũy tại chuồng; người chơi chủ động thu vào kho dùng chung.
 - Lấy thịt sẽ loại con vật tương ứng khỏi chuồng. Không bán động vật sống.
-- Chỉ câu cá trưởng thành có trong ao; mỗi lượt thành công giảm một con cá tương ứng trong ao. Luật chơi tại [minigame](../minigames.md).
+- Chỉ câu cá trưởng thành có trong ao; mỗi lượt thành công giảm một con cá tương ứng trong ao. Luật chơi tại minigame.
 - Cách xử lý thu sản phẩm khi kho đầy, chọn cá thể lấy thịt, mua thêm con sau lượt cho ăn và thời điểm sản xuất đầu tiên chưa chốt; cần thống nhất khi triển khai.

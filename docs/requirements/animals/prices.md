@@ -2,7 +2,7 @@
 
 Giá cho một đơn vị, dùng tiền trong game ($). Dấu — nghĩa là không giao dịch theo chiều đó.
 
-Các giá trong bảng chăn nuôi đều là bội số của 5$. [Bảng giá thực vật](../plants/prices.md) được quản lý riêng; không thay đổi theo bảng này.
+Các giá trong bảng chăn nuôi đều là bội số của 5$. Bảng giá thực vật được quản lý riêng; không thay đổi theo bảng này.
 
 ## Động vật non
 
@@ -39,4 +39,4 @@ Các giá trong bảng chăn nuôi đều là bội số của 5$. [Bảng giá 
 | Thức ăn gia súc | 5 | — |
 | Thức ăn cho cá | 5 | — |
 
-Ví tiền và danh mục hàng dùng chung với Vũ; không tạo hệ thống tiền riêng. Quy tắc chăm sóc tại [luật chăn nuôi](rules.md).
+Ví tiền và danh mục hàng dùng chung với Vũ; không tạo hệ thống tiền riêng. Quy tắc chăm sóc tại luật chăn nuôi.
