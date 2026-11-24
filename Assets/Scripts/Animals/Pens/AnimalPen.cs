@@ -36,12 +36,15 @@ namespace SecondSpring.Animals
 
         public bool AddAnimal(Animal animal)
         {
-            if (animal == null) throw new ArgumentNullException(nameof(animal));
-            if (animal.Type != AnimalType || _animals.Count >= Capacity || _animals.Exists(a => a.Id == animal.Id)) return false;
+            if (animal == null)
+                throw new ArgumentNullException(nameof(animal));
+            if (animal.Type != AnimalType || _animals.Count >= Capacity || _animals.Exists(a => a.Id == animal.Id))
+                return false;
             _animals.Add(animal);
             return true;
         }
 
+        // Mỗi đơn vị thức ăn phục vụ tối đa năm con.
         public int GetFeedRequired() => (_animals.Count + 4) / 5;
 
         internal bool RemoveAnimal(Animal animal) => _animals.Remove(animal);
@@ -54,19 +57,27 @@ namespace SecondSpring.Animals
 
         public PenStatus GetStatus(int day, int hour)
         {
-            if (day < 1) throw new ArgumentOutOfRangeException(nameof(day));
-            if (hour < 0 || hour > 23) throw new ArgumentOutOfRangeException(nameof(hour));
-            if (_animals.Count == 0) return PenStatus.Empty;
-            if (day <= _fedDay) return PenStatus.Fed;
+            if (day < 1)
+                throw new ArgumentOutOfRangeException(nameof(day));
+            if (hour < 0 || hour > 23)
+                throw new ArgumentOutOfRangeException(nameof(hour));
+            if (_animals.Count == 0)
+                return PenStatus.Empty;
+            if (day <= _fedDay)
+                return PenStatus.Fed;
             return hour < _strategy.GetFeedStartHour(AnimalType) ? PenStatus.BeforeFeedTime : PenStatus.AwaitingFeed;
         }
 
-        // The callback must atomically remove the requested feed and report success.
+        // Kho phải trừ đủ thức ăn một lần và trả kết quả thành công.
         public bool Feed(int day, int hour, Func<FeedType, int, bool> tryConsumeFeed)
         {
-            if (tryConsumeFeed == null) throw new ArgumentNullException(nameof(tryConsumeFeed));
-            if (GetStatus(day, hour) != PenStatus.AwaitingFeed) return false;
-            if (!tryConsumeFeed(_strategy.GetFeedType(), GetFeedRequired())) return false;
+            if (tryConsumeFeed == null)
+                throw new ArgumentNullException(nameof(tryConsumeFeed));
+            if (GetStatus(day, hour) != PenStatus.AwaitingFeed)
+                return false;
+            if (!tryConsumeFeed(_strategy.GetFeedType(), GetFeedRequired()))
+                return false;
+            // Chỉ những con có mặt lúc cho ăn mới được tính đã ăn hôm nay.
             _fedAnimals.Clear();
             foreach (Animal animal in _animals) _fedAnimals.Add(animal);
             _fedDay = day;

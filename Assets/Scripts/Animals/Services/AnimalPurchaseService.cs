@@ -11,7 +11,7 @@ namespace SecondSpring.Animals
         private readonly Func<int, bool> _trySpend;
         private readonly Action<int> _refund;
 
-        // The wallet callbacks must debit atomically and reliably restore a successful debit.
+        // Ví phải trừ tiền nguyên vẹn và hoàn lại được khi giao dịch thất bại.
         public AnimalPurchaseService(AnimalPenRegistry pens, Func<AnimalType, FishType?, int?> findPrice,
             Func<int> nextId, Func<int, bool> trySpend, Action<int> refund)
         {
@@ -24,37 +24,46 @@ namespace SecondSpring.Animals
 
         public bool BuyAnimal(AnimalType type, int quantity, FishType? fishType = null)
         {
-            if (quantity <= 0 || !Enum.IsDefined(typeof(AnimalType), type)) return false;
+            if (quantity <= 0 || !Enum.IsDefined(typeof(AnimalType), type))
+                return false;
             if (type == AnimalType.Fish)
             {
-                if (!fishType.HasValue || !Enum.IsDefined(typeof(FishType), fishType.Value)) return false;
+                if (!fishType.HasValue || !Enum.IsDefined(typeof(FishType), fishType.Value))
+                    return false;
             }
-            else if (fishType.HasValue) return false;
+            else if (fishType.HasValue)
+                return false;
 
             AnimalPen pen = _pens.GetPen(type);
-            if (quantity > pen.Capacity - pen.Animals.Count) return false;
+            if (quantity > pen.Capacity - pen.Animals.Count)
+                return false;
             int? unitPrice = _findPrice(type, fishType);
-            if (!unitPrice.HasValue || unitPrice.Value < 0 || (long)unitPrice.Value * quantity > int.MaxValue) return false;
+            if (!unitPrice.HasValue || unitPrice.Value < 0 || (long)unitPrice.Value * quantity > int.MaxValue)
+                return false;
             int total = unitPrice.Value * quantity;
             AnimalCreator creator = ResolveCreator(type, fishType);
             var reservedIds = new HashSet<int>();
+            // Kiểm tra ID trên toàn bộ chuồng trước khi trừ tiền.
             foreach (AnimalType penType in Enum.GetValues(typeof(AnimalType)))
                 foreach (Animal existing in _pens.GetPen(penType).Animals) reservedIds.Add(existing.Id);
             var animals = new List<Animal>();
             for (int i = 0; i < quantity; i++)
             {
                 int id = _nextId();
-                if (id <= 0 || !reservedIds.Add(id)) return false;
+                if (id <= 0 || !reservedIds.Add(id))
+                    return false;
                 animals.Add(creator.CreateAnimal(id));
             }
-            if (!_trySpend(total)) return false;
+            if (!_trySpend(total))
+                return false;
             var added = new List<Animal>();
             bool completed = false;
             try
             {
                 foreach (Animal animal in animals)
                 {
-                    if (!pen.AddAnimal(animal)) return false;
+                    if (!pen.AddAnimal(animal))
+                        return false;
                     added.Add(animal);
                 }
                 completed = true;
@@ -64,6 +73,7 @@ namespace SecondSpring.Animals
             {
                 if (!completed)
                 {
+                    // Gỡ các con vừa thêm và hoàn tiền nếu giao dịch không hoàn tất.
                     foreach (Animal previous in added) pen.RemoveAnimal(previous);
                     _refund(total);
                 }

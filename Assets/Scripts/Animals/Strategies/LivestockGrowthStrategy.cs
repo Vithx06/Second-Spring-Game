@@ -6,7 +6,8 @@ namespace SecondSpring.Animals
     {
         public void AdvanceGrowth(Animal animal, bool penFed)
         {
-            if (animal == null) throw new ArgumentNullException(nameof(animal));
+            if (animal == null)
+                throw new ArgumentNullException(nameof(animal));
             GetFeedStartHour(animal.Type);
             animal.AdvanceOneDay(penFed);
         }

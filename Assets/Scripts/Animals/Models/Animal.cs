@@ -14,7 +14,8 @@ namespace SecondSpring.Animals
 
         protected Animal(int id, AnimalProfile profile)
         {
-            if (id <= 0) throw new ArgumentOutOfRangeException(nameof(id));
+            if (id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(id));
             Profile = profile ?? throw new ArgumentNullException(nameof(profile));
             Id = id;
             Type = profile.AnimalType;
@@ -25,8 +26,10 @@ namespace SecondSpring.Animals
 
         internal void AdvanceOneDay(bool penFed)
         {
+            // Tuổi luôn tăng; chỉ con được cho ăn mới tiến tới trưởng thành.
             Age++;
-            if (!penFed || IsAdult()) return;
+            if (!penFed || IsAdult())
+                return;
             GrowthProgress++;
             if (GrowthProgress >= Profile.MaturityDays)
             {

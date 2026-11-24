@@ -14,7 +14,8 @@ namespace SecondSpring.Animals
 
         public AnimalPen GetPen(AnimalType type)
         {
-            if (!_pens.TryGetValue(type, out var pen)) throw new ArgumentOutOfRangeException(nameof(type));
+            if (!_pens.TryGetValue(type, out var pen))
+                throw new ArgumentOutOfRangeException(nameof(type));
             return pen;
         }
     }

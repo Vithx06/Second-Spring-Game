@@ -12,12 +12,18 @@ namespace SecondSpring.Animals
 
         public AnimalProfile(AnimalType animalType, int maturityDays, int productionCycleDays, int productUnits, int meatYield)
         {
-            if (!Enum.IsDefined(typeof(AnimalType), animalType)) throw new ArgumentOutOfRangeException(nameof(animalType));
-            if (maturityDays <= 0) throw new ArgumentOutOfRangeException(nameof(maturityDays));
-            if (productionCycleDays < 0) throw new ArgumentOutOfRangeException(nameof(productionCycleDays));
-            if (productUnits < 0) throw new ArgumentOutOfRangeException(nameof(productUnits));
-            if (meatYield < 0) throw new ArgumentOutOfRangeException(nameof(meatYield));
-            if ((productionCycleDays == 0) != (productUnits == 0)) throw new ArgumentException("Production cycle and units must both be zero or positive.");
+            if (!Enum.IsDefined(typeof(AnimalType), animalType))
+                throw new ArgumentOutOfRangeException(nameof(animalType));
+            if (maturityDays <= 0)
+                throw new ArgumentOutOfRangeException(nameof(maturityDays));
+            if (productionCycleDays < 0)
+                throw new ArgumentOutOfRangeException(nameof(productionCycleDays));
+            if (productUnits < 0)
+                throw new ArgumentOutOfRangeException(nameof(productUnits));
+            if (meatYield < 0)
+                throw new ArgumentOutOfRangeException(nameof(meatYield));
+            if ((productionCycleDays == 0) != (productUnits == 0))
+                throw new ArgumentException("Production cycle and units must both be zero or positive.");
             AnimalType = animalType;
             MaturityDays = maturityDays;
             ProductionCycleDays = productionCycleDays;

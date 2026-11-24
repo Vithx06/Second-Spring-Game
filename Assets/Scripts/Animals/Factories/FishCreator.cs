@@ -8,7 +8,8 @@ namespace SecondSpring.Animals
 
         public FishCreator(FishType fishType)
         {
-            if (!Enum.IsDefined(typeof(FishType), fishType)) throw new ArgumentOutOfRangeException(nameof(fishType));
+            if (!Enum.IsDefined(typeof(FishType), fishType))
+                throw new ArgumentOutOfRangeException(nameof(fishType));
             _fishType = fishType;
         }
 
