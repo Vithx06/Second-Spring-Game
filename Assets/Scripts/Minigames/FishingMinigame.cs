@@ -27,22 +27,29 @@ namespace SecondSpring.Minigames
             FishingCatch.PlasticCan, FishingCatch.OldShoe, FishingCatch.TornClothes
         };
         private static readonly int[] Weights = { 35, 25, 10, 10, 10, 10 };
-        private readonly double _zoneStart;
-        private readonly double _zoneEnd;
+        public const double DurationSeconds = 10;
         private readonly HashSet<FishingCatch> _available;
         private readonly double _roll;
         private double _position;
+        private FishingCatch _selectedCatch;
         private FishingOutcome _outcome;
-        public FishingCatch SelectedCatch { get; private set; }
+        private bool _timedOut;
+        public double ElapsedSeconds { get; private set; }
+        public FishingCatch SelectedCatch => IsStarted ? _selectedCatch : throw new InvalidOperationException("This attempt has not started.");
+        public double ZoneWidth => SelectedCatch == FishingCatch.Sturgeon ? .15 : SelectedCatch == FishingCatch.Carp ? .22 : .30;
+        public double SecondsPerDirection => SelectedCatch == FishingCatch.Sturgeon ? 1 : SelectedCatch == FishingCatch.Carp ? 1.5 : 2;
+        public double ZoneStart => (1 - ZoneWidth) / 2;
+        public double ZoneEnd => (1 + ZoneWidth) / 2;
+        public double MarkerPosition
+        {
+            get { double phase = (ElapsedSeconds / SecondsPerDirection) % 2; return phase <= 1 ? phase : 2 - phase; }
+        }
 
-        // roll là số ngẫu nhiên phân bố đều trong [0, 1). Vị trí và hai đầu
-        // vùng chính xác được chuẩn hóa từ 0 đến 1 trên thanh câu.
-        public FishingMinigame(IEnumerable<FishingCatch> adultFish, double roll, double zoneStart, double zoneEnd)
+        // roll là số ngẫu nhiên phân bố đều trong [0, 1).
+        public FishingMinigame(IEnumerable<FishingCatch> adultFish, double roll)
         {
             if (adultFish == null) throw new ArgumentNullException(nameof(adultFish));
             if (double.IsNaN(roll) || roll < 0 || roll >= 1) throw new ArgumentOutOfRangeException(nameof(roll));
-            if (double.IsNaN(zoneStart) || double.IsNaN(zoneEnd) || zoneStart < 0 || zoneEnd > 1 || zoneStart >= zoneEnd)
-                throw new ArgumentOutOfRangeException(nameof(zoneStart));
             _available = new HashSet<FishingCatch>();
             foreach (var fish in adultFish)
             {
@@ -51,8 +58,6 @@ namespace SecondSpring.Minigames
                 _available.Add(fish);
             }
             _roll = roll;
-            _zoneStart = zoneStart;
-            _zoneEnd = zoneEnd;
         }
 
         protected override void Setup()
@@ -67,24 +72,31 @@ namespace SecondSpring.Minigames
             {
                 if (i < 3 && !_available.Contains(Catches[i])) continue;
                 selection -= Weights[i];
-                if (selection < 0) { SelectedCatch = Catches[i]; break; }
+                if (selection < 0) { _selectedCatch = Catches[i]; break; }
             }
         }
 
-        // Câu cá chờ người chơi giật cần; chuyển động thanh do tầng giao diện cung cấp.
+        // Lượt chơi chờ thao tác giật cần; Advance cập nhật thời gian thực.
         protected override void PlayCore() { }
 
-        public FishingResult Pull(double position)
+        public override void Advance(double realSeconds)
         {
             if (!IsStarted || IsFinished) throw new InvalidOperationException("This attempt is not active.");
-            if (double.IsNaN(position) || position < 0 || position > 1) throw new ArgumentOutOfRangeException(nameof(position));
-            _position = position;
+            if (double.IsNaN(realSeconds) || double.IsInfinity(realSeconds) || realSeconds < 0) throw new ArgumentOutOfRangeException(nameof(realSeconds));
+            ElapsedSeconds = Math.Min(DurationSeconds, ElapsedSeconds + realSeconds);
+            if (ElapsedSeconds >= DurationSeconds) { _timedOut = true; Complete(); }
+        }
+
+        public FishingResult Pull()
+        {
+            if (!IsStarted || IsFinished) throw new InvalidOperationException("This attempt is not active.");
+            _position = MarkerPosition;
             return Complete();
         }
 
         protected override void EvaluateResult()
         {
-            if (_position < _zoneStart || _position > _zoneEnd) { _outcome = FishingOutcome.Miss; return; }
+            if (_timedOut || _position < ZoneStart || _position > ZoneEnd) { _outcome = FishingOutcome.Miss; return; }
             bool fish = SelectedCatch == FishingCatch.Perch || SelectedCatch == FishingCatch.Carp || SelectedCatch == FishingCatch.Sturgeon;
             _outcome = fish ? FishingOutcome.Fish : FishingOutcome.Trash;
         }

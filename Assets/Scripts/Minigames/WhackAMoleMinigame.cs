@@ -32,7 +32,6 @@ namespace SecondSpring.Minigames
         public int Lives { get; private set; }
         public int Hits { get; private set; }
         public int? ActiveHole { get; private set; }
-        public WhackAMoleResult Result { get; private set; }
 
         // Hàm ngẫu nhiên nhận số lựa chọn và trả về chỉ số từ 0 đến nhỏ hơn số đó.
         public WhackAMoleMinigame(Func<int, int> randomIndex)
@@ -53,7 +52,7 @@ namespace SecondSpring.Minigames
             return true;
         }
 
-        public void Advance(double realSeconds)
+        public override void Advance(double realSeconds)
         {
             EnsureActive();
             if (double.IsNaN(realSeconds) || double.IsInfinity(realSeconds) || realSeconds < 0)
@@ -76,7 +75,7 @@ namespace SecondSpring.Minigames
                 if (ActiveHole.HasValue) { ActiveHole = null; Lives--; }
                 if (Lives == 0 || ElapsedSeconds >= DurationSeconds)
                 {
-                    Result = Complete();
+                    Complete();
                     return;
                 }
                 _slotElapsed = 0;
