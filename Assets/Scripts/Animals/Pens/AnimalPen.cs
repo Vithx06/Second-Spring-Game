@@ -9,6 +9,7 @@ namespace SecondSpring.Animals
         private readonly List<Animal> _animals = new List<Animal>();
         private readonly ReadOnlyCollection<Animal> _readOnlyAnimals;
         private readonly IAnimalGrowthStrategy _strategy;
+        private readonly HashSet<Animal> _fedAnimals = new HashSet<Animal>();
         private int _fedDay;
 
         public AnimalType AnimalType { get; }
@@ -42,6 +43,10 @@ namespace SecondSpring.Animals
 
         public int GetFeedRequired() => (_animals.Count + 4) / 5;
 
+        internal bool RemoveAnimal(Animal animal) => _animals.Remove(animal);
+
+        internal bool WasFed(Animal animal, int day) => _fedDay == day && _fedAnimals.Contains(animal);
+
         public PenStatus GetStatus(int day, int hour)
         {
             if (day < 1) throw new ArgumentOutOfRangeException(nameof(day));
@@ -57,6 +62,8 @@ namespace SecondSpring.Animals
             if (tryConsumeFeed == null) throw new ArgumentNullException(nameof(tryConsumeFeed));
             if (GetStatus(day, hour) != PenStatus.AwaitingFeed) return false;
             if (!tryConsumeFeed(_strategy.GetFeedType(), GetFeedRequired())) return false;
+            _fedAnimals.Clear();
+            foreach (Animal animal in _animals) _fedAnimals.Add(animal);
             _fedDay = day;
             return true;
         }

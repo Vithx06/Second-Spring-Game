@@ -40,6 +40,7 @@ Xem thêm bảng giá và thời gian chung.
 - Cho ăn đồng loạt cả chuồng/ao, tối đa một lần/ngày; chuồng trống không cần cho ăn.
 - Một đơn vị thức ăn đủ cho tối đa 5 con/ngày. Lượng cần dùng = **làm tròn lên (số con / 5)**.
 - Hệ thống tự trừ thức ăn trong kho; nếu không đủ thì không thực hiện.
+- Con được mua thêm sau lượt cho ăn không được tính đã ăn trong ngày đó; bắt đầu được cho ăn từ ngày tiếp theo.
 
 | Số con | Đơn vị thức ăn/ngày |
 |---|---:|
@@ -60,4 +61,4 @@ Sang ngày mới, chuồng chưa được cho ăn bị tính là bỏ lỡ ngày
 - Trứng/sữa tích lũy tại chuồng; người chơi chủ động thu vào kho dùng chung.
 - Lấy thịt sẽ loại con vật tương ứng khỏi chuồng. Không bán động vật sống.
 - Chỉ câu cá trưởng thành có trong ao; mỗi lượt thành công giảm một con cá tương ứng trong ao. Luật chơi tại minigame.
-- Cách xử lý thu sản phẩm khi kho đầy, chọn cá thể lấy thịt, mua thêm con sau lượt cho ăn và thời điểm sản xuất đầu tiên chưa chốt; cần thống nhất khi triển khai.
+- Cách xử lý thu sản phẩm khi kho đầy, chọn cá thể lấy thịt và thời điểm sản xuất đầu tiên chưa chốt; cần thống nhất khi triển khai.
