@@ -18,7 +18,7 @@
 
 ## Thời gian phát triển và sản lượng cơ bản
 
-Quy đổi theo [đồng hồ chung](../time.md): **1 ngày game = 5 phút thực**. Các phân hệ dùng chung GameClock; thời lượng được ghi và hiển thị theo ngày, giờ, phút game, không dùng số ngày thập phân. Thời lượng sinh trưởng tính bằng ngày game trong các bảng dưới đây giữ nguyên.
+Quy đổi theo đồng hồ chung: **1 ngày game = 5 phút thực**. Các phân hệ dùng chung GameClock; thời lượng được ghi và hiển thị theo ngày, giờ, phút game, không dùng số ngày thập phân. Thời lượng sinh trưởng tính bằng ngày game trong các bảng dưới đây giữ nguyên.
 
 | Loại cây | Giai đoạn 1 (game) | Giai đoạn 2 (game) | Tổng đến lần chín đầu (game) | Sản lượng gốc mỗi lần | Thu hoạch |
 |---|---|---|---|---:|---|
