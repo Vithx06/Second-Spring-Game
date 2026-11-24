@@ -14,6 +14,7 @@
 /.idea/
 /.vscode/
 *.csproj
+!/Tools/**/*.csproj
 *.sln
 *.slnx
 *.suo
