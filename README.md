@@ -56,7 +56,7 @@ Project Unity nằm tại thư mục gốc của repository, cùng với `Assets
 
 ## Cấu trúc thư mục
 
-Các thư mục trong `Assets/Scripts/` hiện còn trống; code chơi thử nằm riêng trong `Assets/VinhPrototype/`.
+Code nghiệp vụ chính nằm trong `Assets/Scripts/`; code chơi thử nằm riêng trong `Assets/VinhPrototype/`. Một số thư mục vẫn đang chờ triển khai.
 
 ```text
 Second-Spring-Game/
@@ -65,6 +65,13 @@ Second-Spring-Game/
 │   │   ├── Achievements/         # Thành tựu
 │   │   ├── Animals/              # Chăn nuôi
 │   │   ├── Economy/              # Ví tiền
+│   │   ├── Exceptions/           # Ngoại lệ nghiệp vụ dự kiến
+│   │   │   ├── Animals/          # Chuồng và vật nuôi
+│   │   │   ├── Economy/          # Ví tiền
+│   │   │   ├── Inventory/        # Kho và vật phẩm
+│   │   │   ├── Plants/           # Trồng trọt
+│   │   │   ├── Shop/             # Giao dịch
+│   │   │   └── Time/             # Đồng hồ game
 │   │   ├── Inventory/            # Kho, vật phẩm
 │   │   ├── MainHouse/            # Nhà chính và điều kiện thắng/thua
 │   │   ├── Minigames/            # Trò chơi nhỏ
@@ -81,6 +88,9 @@ Second-Spring-Game/
 │   ├── Scenes/                   # Scene chung, hiện có SampleScene
 │   ├── Settings/                 # Cấu hình đồ họa và input
 │   ├── Tests/                    # Kiểm thử
+│   │   ├── Unit/                 # Kiểm thử đơn vị
+│   │   ├── Integration/          # Kiểm thử tích hợp
+│   │   └── System/               # Kiểm thử toàn hệ thống
 │   ├── VinhPrototype/            # Bản chơi thử của Vinh
 │   │   ├── Art/                  # Hình ảnh; Farm/ chứa sprite và tọa độ
 │   │   ├── Editor/               # Công cụ dựng scene
@@ -111,6 +121,8 @@ Second-Spring-Game/
 ```
 
 Các file `.meta` và một số file con được lược bớt trong cây. Giữ file `.meta` cùng asset; đổi tên hoặc di chuyển asset trong Unity để giữ liên kết.
+
+Các class trong `Assets/Scripts/Exceptions/` là ngoại lệ dự kiến, chưa được tích hợp vào nghiệp vụ. Nhóm sẽ thống nhất cách sử dụng khi phát triển từng phân hệ.
 
 ## Tài liệu
 
