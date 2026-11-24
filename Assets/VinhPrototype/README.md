@@ -18,7 +18,7 @@ Các lớp nằm trong **Phong cảnh**, **Nhà và khu nuôi**, **Trang trí v�
 
 ## Phạm vi chơi thử
 
-Số thức ăn và đàn ban đầu là dữ liệu thử. Thêm giống chưa trừ tiền. Thu sản phẩm cập nhật số tích lũy tại chuồng. Việc kết nối kho và ví của Vũ, lưu game, âm lượng, điều kiện của 30 thành tựu và kiểm tra thắng toàn trò chơi còn chờ tích hợp. Luật mẫu chăn nuôi nằm trong `Scripts/FarmModel.cs`.
+Số thức ăn và đàn ban đầu là dữ liệu thử. Thêm giống chưa trừ tiền. Thu sản phẩm cập nhật số tích lũy tại chuồng. Việc kết nối kho và ví của Vũ, lưu game, âm lượng, danh sách thành tựu và kiểm tra thắng toàn trò chơi còn chờ tích hợp. Luật mẫu chăn nuôi nằm trong `Scripts/FarmModel.cs`.
 
 
 B? h?nh v?t nu?i m?i ???c t?ch t? `asset_animals.png` v?o `Resources/Animals`. Chu?ng hi?n th? ??i di?n con non v? con tr??ng th?nh theo ??n; m? chu?ng ?? xem danh s?ch t?ng con. H?nh c? m?i xu?t hi?n khi c?u th?nh c?ng.
