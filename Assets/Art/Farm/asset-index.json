@@ -1,0 +1,219 @@
+[
+  {
+    "file": "Backgrounds\\Farm_Day.png",
+    "worldWidth": 16.72,
+    "source": "imagegen: transparent object extraction or lighting/background edit"
+  },
+  {
+    "file": "Backgrounds\\Farm_Night.png",
+    "worldWidth": 16.72,
+    "source": "imagegen: transparent object extraction or lighting/background edit"
+  },
+  {
+    "file": "Buildings\\Warehouse.png",
+    "worldWidth": 3.16,
+    "source": "imagegen: transparent object extraction or lighting/background edit"
+  },
+  {
+    "file": "Buildings\\MainHouse.png",
+    "worldWidth": 4.18,
+    "source": "imagegen: transparent object extraction or lighting/background edit"
+  },
+  {
+    "file": "Buildings\\Market.png",
+    "worldWidth": 4.59,
+    "source": "imagegen: transparent object extraction or lighting/background edit"
+  },
+  {
+    "file": "Buildings\\Windmill_Body.png",
+    "worldWidth": 1.3,
+    "source": "imagegen: transparent object extraction or lighting/background edit"
+  },
+  {
+    "file": "Buildings\\Windmill_Rotor.png",
+    "worldWidth": 1.75,
+    "source": "imagegen: transparent object extraction or lighting/background edit"
+  },
+  {
+    "file": "Buildings\\Workshop.png",
+    "worldWidth": 4.9,
+    "source": "unchanged existing transparent sprite"
+  },
+  {
+    "file": "Water\\FishPond.png",
+    "worldWidth": 2.44,
+    "source": "unchanged existing transparent sprite"
+  },
+  {
+    "file": "Decoration\\FarmGate.png",
+    "worldWidth": 3.3,
+    "source": "unchanged existing transparent sprite"
+  },
+  {
+    "file": "Decoration\\FlowerGarden.png",
+    "worldWidth": 2.85,
+    "source": "unchanged existing transparent sprite"
+  },
+  {
+    "file": "Decoration\\Fountain.png",
+    "worldWidth": 1.17,
+    "source": "unchanged existing transparent sprite"
+  },
+  {
+    "file": "Plants/CropAndSoilSheet.png",
+    "sprites": [
+      "Soil_Untilled",
+      "Soil_Tilling",
+      "Soil_Ready",
+      "Soil_Watered",
+      "Soil_Residue",
+      "Soil_Rotten",
+      "Rice_Stage1",
+      "Rice_Stage2",
+      "Rice_Ripe",
+      "Rice_Dead",
+      "Rice_Harvested",
+      "Corn_Stage1",
+      "Corn_Stage2",
+      "Corn_Ripe",
+      "Corn_Dead",
+      "Corn_Harvested",
+      "Sugarcane_Stage1",
+      "Sugarcane_Stage2",
+      "Sugarcane_Ripe",
+      "Sugarcane_Dead",
+      "Sugarcane_Harvested",
+      "Strawberry_Stage1",
+      "Strawberry_Stage2",
+      "Strawberry_Ripe",
+      "Strawberry_Dead",
+      "Strawberry_Harvested",
+      "Apple_Stage1",
+      "Apple_Stage2",
+      "Apple_Ripe",
+      "Apple_Dead",
+      "Apple_Harvested",
+      "Orange_Stage1",
+      "Orange_Stage2",
+      "Orange_Ripe",
+      "Orange_Dead",
+      "Orange_Harvested",
+      "Rose_Stage1",
+      "Rose_Stage2",
+      "Rose_Ripe",
+      "Rose_Dead",
+      "Rose_Harvested",
+      "Orchid_Stage1",
+      "Orchid_Stage2",
+      "Orchid_Ripe",
+      "Orchid_Dead",
+      "Orchid_Harvested"
+    ],
+    "source": "unchanged existing atlas, named Unity slicing metadata"
+  },
+  {
+    "file": "Animals/EmptyBarns.png",
+    "sprites": [
+      "Barn_Cow",
+      "Barn_Pig",
+      "Barn_Chicken",
+      "Barn_Duck"
+    ],
+    "source": "imagegen: regenerated from approved livestock concept to match farm art"
+  },
+  {
+    "file": "Animals/Livestock.png",
+    "sprites": [
+      "Cow_Adult",
+      "Cow_Young",
+      "Pig_Adult",
+      "Pig_Young",
+      "Chicken_Adult",
+      "Chicken_Young",
+      "Duck_Adult",
+      "Duck_Young"
+    ],
+    "source": "imagegen: regenerated from approved livestock concept to match farm art",
+    "usage": "Approved selection via Unity slicing; original PNG preserved."
+  },
+  {
+    "file": "Animals/Fish.png",
+    "sprites": [
+      "Fish_Perch_Adult",
+      "Fish_Carp_Adult",
+      "Fish_Sturgeon_Adult",
+      "Fish_Young"
+    ],
+    "source": "imagegen: regenerated from approved livestock concept to match farm art",
+    "usage": "Approved selection via Unity slicing; original PNG preserved."
+  },
+  {
+    "file": "Items/AnimalProductsAndFeed.png",
+    "sprites": [
+      "Beef",
+      "Pork",
+      "ChickenMeat",
+      "DuckMeat",
+      "Milk",
+      "ChickenEgg",
+      "DuckEgg",
+      "PoultryFeed",
+      "LivestockFeed",
+      "FishFeed"
+    ],
+    "source": "imagegen: regenerated from approved livestock concept to match farm art"
+  },
+  {
+    "file": "Effects\\FountainJet.png",
+    "sprites": [
+      "FountainJet_01",
+      "FountainJet_02",
+      "FountainJet_03",
+      "FountainJet_04"
+    ],
+    "source": "imagegen animation frame sheet, loop must be tested in Unity"
+  },
+  {
+    "file": "Effects\\ButterflyFlight.png",
+    "sprites": [
+      "ButterflyFlight_01",
+      "ButterflyFlight_02",
+      "ButterflyFlight_03",
+      "ButterflyFlight_04"
+    ],
+    "source": "imagegen animation frame sheet, loop must be tested in Unity"
+  },
+  {
+    "file": "Effects\\BirdFlight.png",
+    "sprites": [
+      "BirdFlight_01",
+      "BirdFlight_02",
+      "BirdFlight_03",
+      "BirdFlight_04"
+    ],
+    "source": "imagegen animation frame sheet, loop must be tested in Unity"
+  },
+  {
+    "file": "Effects/WorkshopSmoke.png",
+    "sprites": [
+      "WorkshopSmoke_01",
+      "WorkshopSmoke_02",
+      "WorkshopSmoke_03",
+      "WorkshopSmoke_04"
+    ],
+    "source": "imagegen: isolated pale smoke plume, four frames",
+    "usage": "Two separate smoke objects over the workshop chimneys; reuse this sheet and offset animation timing."
+  },
+  {
+    "file": "Backgrounds/Horizon_Clear_Day.png",
+    "source": "Existing Vinh art copied unchanged; sky uses native sprite slicing."
+  },
+  {
+    "file": "Backgrounds/Horizon_Clear_Night.png",
+    "source": "Existing Vinh art copied unchanged; sky uses native sprite slicing."
+  },
+  {
+    "file": "Buildings/DuckBarn_Front.png",
+    "source": "Existing Vinh art copied unchanged; sky uses native sprite slicing."
+  }
+]

@@ -1,0 +1,1328 @@
+fileFormatVersion: 2
+guid: 86673aba83ae48d7a47d50b60cb3bc35
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300001
+    second: Soil_Untilled
+  - first:
+      213: 21300002
+    second: Soil_Tilling
+  - first:
+      213: 21300003
+    second: Soil_Ready
+  - first:
+      213: 21300004
+    second: Soil_Watered
+  - first:
+      213: 21300005
+    second: Soil_Residue
+  - first:
+      213: 21300006
+    second: Soil_Rotten
+  - first:
+      213: 21300007
+    second: Rice_Stage1
+  - first:
+      213: 21300008
+    second: Rice_Stage2
+  - first:
+      213: 21300009
+    second: Rice_Ripe
+  - first:
+      213: 21300010
+    second: Rice_Dead
+  - first:
+      213: 21300011
+    second: Rice_Harvested
+  - first:
+      213: 21300012
+    second: Corn_Stage1
+  - first:
+      213: 21300013
+    second: Corn_Stage2
+  - first:
+      213: 21300014
+    second: Corn_Ripe
+  - first:
+      213: 21300015
+    second: Corn_Dead
+  - first:
+      213: 21300016
+    second: Corn_Harvested
+  - first:
+      213: 21300017
+    second: Sugarcane_Stage1
+  - first:
+      213: 21300018
+    second: Sugarcane_Stage2
+  - first:
+      213: 21300019
+    second: Sugarcane_Ripe
+  - first:
+      213: 21300020
+    second: Sugarcane_Dead
+  - first:
+      213: 21300021
+    second: Sugarcane_Harvested
+  - first:
+      213: 21300022
+    second: Strawberry_Stage1
+  - first:
+      213: 21300023
+    second: Strawberry_Stage2
+  - first:
+      213: 21300024
+    second: Strawberry_Ripe
+  - first:
+      213: 21300025
+    second: Strawberry_Dead
+  - first:
+      213: 21300026
+    second: Strawberry_Harvested
+  - first:
+      213: 21300027
+    second: Apple_Stage1
+  - first:
+      213: 21300028
+    second: Apple_Stage2
+  - first:
+      213: 21300029
+    second: Apple_Ripe
+  - first:
+      213: 21300030
+    second: Apple_Dead
+  - first:
+      213: 21300031
+    second: Apple_Harvested
+  - first:
+      213: 21300032
+    second: Orange_Stage1
+  - first:
+      213: 21300033
+    second: Orange_Stage2
+  - first:
+      213: 21300034
+    second: Orange_Ripe
+  - first:
+      213: 21300035
+    second: Orange_Dead
+  - first:
+      213: 21300036
+    second: Orange_Harvested
+  - first:
+      213: 21300037
+    second: Rose_Stage1
+  - first:
+      213: 21300038
+    second: Rose_Stage2
+  - first:
+      213: 21300039
+    second: Rose_Ripe
+  - first:
+      213: 21300040
+    second: Rose_Dead
+  - first:
+      213: 21300041
+    second: Rose_Harvested
+  - first:
+      213: 21300042
+    second: Orchid_Stage1
+  - first:
+      213: 21300043
+    second: Orchid_Stage2
+  - first:
+      213: 21300044
+    second: Orchid_Ripe
+  - first:
+      213: 21300045
+    second: Orchid_Dead
+  - first:
+      213: 21300046
+    second: Orchid_Harvested
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 4096
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Soil_Untilled
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1242
+        width: 125
+        height: 125
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbd6b05ed2064f9893d1a96673dcfe38
+      internalID: 21300001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soil_Tilling
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 1242
+        width: 124
+        height: 124
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e078e349e484c95b93b6faeb696094a
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soil_Ready
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 1242
+        width: 127
+        height: 124
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c262c33b4b924a56aa550b8cd3348983
+      internalID: 21300003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soil_Watered
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 1242
+        width: 127
+        height: 124
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acab70db09e1472a8b4dca2dacb6fe0a
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soil_Residue
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 1242
+        width: 126
+        height: 124
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3842265203064e00987eeac0fd4f9e71
+      internalID: 21300005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soil_Rotten
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 1242
+        width: 126
+        height: 124
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e8dac03b3847158df2f07edb30fb11
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rice_Stage1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1085
+        width: 75
+        height: 69
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 174522a6f4ba4c789659d2b68e40bf38
+      internalID: 21300007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rice_Stage2
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 1083
+        width: 104
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b77316438c334a1c844cdd7da2d17f01
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rice_Ripe
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 1083
+        width: 139
+        height: 107
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe63beb75e7e44d788de92e862a7c268
+      internalID: 21300009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rice_Dead
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 1083
+        width: 124
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e0dd47adde34f4b9a61fc569bf92fb0
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rice_Harvested
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 1084
+        width: 93
+        height: 54
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5813c1d00b334a1194ea77d4641c8030
+      internalID: 21300011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corn_Stage1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 923
+        width: 101
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b7fb5555b8940349ea4e97efdf67727
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corn_Stage2
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 922
+        width: 118
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a766066530234afda8c14801281882bc
+      internalID: 21300013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corn_Ripe
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 922
+        width: 129
+        height: 124
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43739a1d9814407282323e6159a67e86
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corn_Dead
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 922
+        width: 117
+        height: 112
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6be3b42c6987453f93d8b23496b1d7cb
+      internalID: 21300015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corn_Harvested
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 922
+        width: 102
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 202761ccf3834b7d89246c5367e2470e
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sugarcane_Stage1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 764
+        width: 77
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e57696840f3441409ef43ba99c02ec73
+      internalID: 21300017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sugarcane_Stage2
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 762
+        width: 115
+        height: 118
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d13e0bf237b446f583a351ac6bbbd068
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sugarcane_Ripe
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 762
+        width: 134
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f7d9d29c4734069a28d87eaa0fe89a4
+      internalID: 21300019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sugarcane_Dead
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 762
+        width: 127
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0902b1a1c5ba4210ac41bda125e949bf
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sugarcane_Harvested
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 764
+        width: 93
+        height: 70
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc3f55c0cebf4344987e3b5c7cf88a89
+      internalID: 21300021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strawberry_Stage1
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 633
+        width: 81
+        height: 57
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cef4d4a1315646b0b189ac2b6a9dc76e
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strawberry_Stage2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 630
+        width: 128
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42b28427aafa4f37ba85320d59094fc7
+      internalID: 21300023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strawberry_Ripe
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 630
+        width: 136
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 818ddb60b32c415c934a440340238666
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strawberry_Dead
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 630
+        width: 131
+        height: 88
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e450592a8e47d28a2618ca0896776b
+      internalID: 21300025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strawberry_Harvested
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 628
+        width: 106
+        height: 69
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de6568ca2dc645d298dae08476c270f8
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apple_Stage1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 493
+        width: 83
+        height: 70
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1edde7bbd7134e20a4d7b552d96d8e55
+      internalID: 21300027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apple_Stage2
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 491
+        width: 121
+        height: 108
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b54d7281189b434db138592d76ee2efa
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apple_Ripe
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 491
+        width: 135
+        height: 111
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4a5a8abe4a74f93b1f622b294429ce1
+      internalID: 21300029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apple_Dead
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 491
+        width: 130
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaae3a7103744c1bacae67002ea1234b
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apple_Harvested
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 491
+        width: 108
+        height: 62
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9d03b3f329f419392baac40f86cb67e
+      internalID: 21300031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_Stage1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 352
+        width: 83
+        height: 74
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d05db99d96cd4a6a98a82275175326c5
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_Stage2
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 350
+        width: 127
+        height: 113
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56ab2c16244141b499b264aa1338149b
+      internalID: 21300033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_Ripe
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 350
+        width: 135
+        height: 117
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef19466581d4450b8d22a82a2ac514c2
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_Dead
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 351
+        width: 128
+        height: 109
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd3b7a0de28347db936176e561f3bf4a
+      internalID: 21300035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_Harvested
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 350
+        width: 108
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95d10576385e40b0997ed56c37af17c5
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rose_Stage1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 211
+        width: 77
+        height: 57
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e8ee1fe26a44373bf7d69c9cddd3c78
+      internalID: 21300037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rose_Stage2
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 209
+        width: 101
+        height: 102
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ef40cf84e7b42e18c4012c6f5cb2613
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rose_Ripe
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 209
+        width: 118
+        height: 107
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e349e1d07c6e418880ea00fd514345f5
+      internalID: 21300039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rose_Dead
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 209
+        width: 105
+        height: 93
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bee70b5716de431695f9758cf9b7272a
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rose_Harvested
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 211
+        width: 70
+        height: 59
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de92661950a04263a3231f196ed40ecb
+      internalID: 21300041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orchid_Stage1
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 70
+        width: 85
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c98e507f62e94d97b3b4d5476bb4f1f0
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orchid_Stage2
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 67
+        width: 113
+        height: 105
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cdebda58008457aaa61331d9d8c2f80
+      internalID: 21300043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orchid_Ripe
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 67
+        width: 122
+        height: 111
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 873ea066fb96487da169334f63a68ca5
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orchid_Dead
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 67
+        width: 116
+        height: 98
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2957febfc884dff8acbb60c918a9641
+      internalID: 21300045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orchid_Harvested
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 68
+        width: 102
+        height: 61
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37360aa13bd749a89e6a72846bd1f0f9
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Soil_Untilled: 21300001
+      Soil_Tilling: 21300002
+      Soil_Ready: 21300003
+      Soil_Watered: 21300004
+      Soil_Residue: 21300005
+      Soil_Rotten: 21300006
+      Rice_Stage1: 21300007
+      Rice_Stage2: 21300008
+      Rice_Ripe: 21300009
+      Rice_Dead: 21300010
+      Rice_Harvested: 21300011
+      Corn_Stage1: 21300012
+      Corn_Stage2: 21300013
+      Corn_Ripe: 21300014
+      Corn_Dead: 21300015
+      Corn_Harvested: 21300016
+      Sugarcane_Stage1: 21300017
+      Sugarcane_Stage2: 21300018
+      Sugarcane_Ripe: 21300019
+      Sugarcane_Dead: 21300020
+      Sugarcane_Harvested: 21300021
+      Strawberry_Stage1: 21300022
+      Strawberry_Stage2: 21300023
+      Strawberry_Ripe: 21300024
+      Strawberry_Dead: 21300025
+      Strawberry_Harvested: 21300026
+      Apple_Stage1: 21300027
+      Apple_Stage2: 21300028
+      Apple_Ripe: 21300029
+      Apple_Dead: 21300030
+      Apple_Harvested: 21300031
+      Orange_Stage1: 21300032
+      Orange_Stage2: 21300033
+      Orange_Ripe: 21300034
+      Orange_Dead: 21300035
+      Orange_Harvested: 21300036
+      Rose_Stage1: 21300037
+      Rose_Stage2: 21300038
+      Rose_Ripe: 21300039
+      Rose_Dead: 21300040
+      Rose_Harvested: 21300041
+      Orchid_Stage1: 21300042
+      Orchid_Stage2: 21300043
+      Orchid_Ripe: 21300044
+      Orchid_Dead: 21300045
+      Orchid_Harvested: 21300046
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
