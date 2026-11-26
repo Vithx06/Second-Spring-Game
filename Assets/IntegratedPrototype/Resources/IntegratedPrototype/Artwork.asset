@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dee307302ed4c698ca99607c3c65288, type: 3}
+  m_Name: Artwork
+  m_EditorClassIdentifier: Assembly-CSharp::SecondSpring.IntegratedPrototype.IntegratedPrototypeArt
+  calendar: {fileID: 2800000, guid: 790a39c60c584e6ca76f87b98d557453, type: 3}
+  hole: {fileID: 2800000, guid: e6e6d8c4f94540dcb3ad93cd9d22d464, type: 3}
+  moleArt: {fileID: 2800000, guid: 5128b130577548d18bcf3dae36b9222a, type: 3}
+  soilAndCropAtlas: {fileID: 2800000, guid: 6effa017282b4e3790c9ef9fb817451d, type: 3}
+  seedAndProduceAtlas: {fileID: 2800000, guid: a39efa006e534de9a11421f99bc9e5c2, type: 3}
+  coin: {fileID: 2800000, guid: e16a5786b9344fae9d8a068ab90639e1, type: 3}
+  toolIcons:
+  - {fileID: 2800000, guid: c58a822939fa4d27a6db638677998c02, type: 3}
+  - {fileID: 2800000, guid: eb5a81d10dbe4edcbdcd705832e026dd, type: 3}
+  - {fileID: 2800000, guid: 6c7820b19cef4b46a4215e0c7d7aa4e4, type: 3}
+  - {fileID: 2800000, guid: 41222a25eaf7456c9a005fbae5dad572, type: 3}
+  - {fileID: 2800000, guid: b4038b83cf734ebe94f1c204666ed72f, type: 3}
+  - {fileID: 2800000, guid: 3822ff36a4f344c883040cd188049db4, type: 3}
+  waterDrop: {fileID: 2800000, guid: 1fc6577a1bf849348b65f8d44f918bfa, type: 3}
+  crate: {fileID: 2800000, guid: c19d0990610f40aaae0fc4e9fc157ae0, type: 3}
+  penTextures:
+  - {fileID: 2800000, guid: 6ed0bd0e2793403c8bc92a03587706c8, type: 3}
+  - {fileID: 2800000, guid: 841f42e6c3d24bdfa4affc4516ba763d, type: 3}
+  - {fileID: 2800000, guid: 3b00d991b8b2422a96d49b65be16949d, type: 3}
+  - {fileID: 2800000, guid: b562369cfe234760a246c5ab2c7afb9a, type: 3}
+  adultTextures:
+  - {fileID: 2800000, guid: 1dd16a1a14564db7b12e9d446d8d356d, type: 3}
+  - {fileID: 2800000, guid: 64261b9f63864f299f5d2898ff6ddbe5, type: 3}
+  - {fileID: 2800000, guid: b7fb4a49187943b8b68fe657de7c76e8, type: 3}
+  - {fileID: 2800000, guid: 2a1d1095730a4f009d9aacacac68d4f1, type: 3}
+  youngTextures:
+  - {fileID: 2800000, guid: 81f6da849ef4450f999834ef6b2eb96e, type: 3}
+  - {fileID: 2800000, guid: b571dcb185b649ceacdfa871d9219201, type: 3}
+  - {fileID: 2800000, guid: 012881fb7c2d4129b107cf602978ca67, type: 3}
+  - {fileID: 2800000, guid: 48887e5755c54f9a8b350fe1bb1a0fb7, type: 3}
+  feedTextures:
+  - {fileID: 2800000, guid: 2e89b91b3add486a8614a7c2c8de619f, type: 3}
+  - {fileID: 2800000, guid: b13351ba2ad34d3f8dee8366a1f8b2fb, type: 3}
+  - {fileID: 2800000, guid: a1cf0d1fcf71468e81062e3be40319d0, type: 3}
+  fishTextures:
+  - {fileID: 2800000, guid: f3d04fc9366f4df884fef8d06bc9ce7c, type: 3}
+  - {fileID: 2800000, guid: b846e8c7d24a42f281ccc2173a7949e8, type: 3}
+  - {fileID: 2800000, guid: d253326a71364865bb6974423958afc3, type: 3}
+  windmillBase: {fileID: 21300000, guid: f653eca96979462cac4f2e5696329d3c, type: 3}
+  windmillSails: {fileID: 21300000, guid: 6ab64492d43c485b888197bb3e32c37d, type: 3}
+  cloud: {fileID: 21300000, guid: 3cfb651545aa420ab95d3fa4a7856442, type: 3}
+  smoke: {fileID: 21300000, guid: d67780f6c3f1411a9d353e94338dcd7f, type: 3}
+  dayHorizon: {fileID: 2800000, guid: 87eddd45e4fa46699e99626c26a02fdb, type: 3}
+  nightHorizon: {fileID: 2800000, guid: 2206e5ac9e49452fa5dd566b69f10ad8, type: 3}
+  musicTracks: []
+  clickSound: {fileID: 0}
+  enableClickSounds: 0
+  musicVolume: 0.25
+  effectVolume: 0.45
