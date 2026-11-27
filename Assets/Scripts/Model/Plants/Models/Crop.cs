@@ -1,13 +1,15 @@
 using System;
 
-public abstract class Crop
+public abstract partial class Crop
 {
     private readonly CropDefinition _definition;
     private CropState _state = CropState.Stage1;
+    // Nhóm dữ liệu của giai đoạn đang lớn: lượt tưới, thời gian lớn và thời gian chịu hạn.
     private int _wateringCount;
     private float _growthTimeRemaining;
     private float _waterDeprivationElapsedTime;
     private bool _hasDroughtPenalty;
+    // Hiệu quả phân bón tồn tại suốt đời cây; hệ số thời gian áp dụng cả lúc tái sinh.
     private FertilizerType _fertilizerType;
     private float _yieldBonus;
     private float _ripeElapsedTime;
@@ -24,6 +26,8 @@ public abstract class Crop
     public bool HasDroughtPenalty => _hasDroughtPenalty;
     public FertilizerType FertilizerType => _fertilizerType;
     public float RipeElapsedTime => _ripeElapsedTime;
+    // Cây tái sinh cũng cần tưới như hai giai đoạn sinh trưởng đầu.
+    public bool CanWater => _state==CropState.Stage1 || _state==CropState.Stage2 || _state==CropState.Regrowing;
 
     protected Crop(CropDefinition definition, Func<double> random = null)
     {
@@ -34,37 +38,34 @@ public abstract class Crop
 
     public bool Water()
     {
-        if (_state != CropState.Stage1 && _state != CropState.Stage2) return false;
+        if (!CanWater) return false;
+        // Mỗi giai đoạn cần tưới lại; tưới đến lần thứ năm làm cây chết.
         _wateringCount++;
         _waterDeprivationElapsedTime = 0;
         if (_wateringCount >= 5) _state = CropState.Dead;
         return true;
     }
 
-    public bool CanFertilize() => (_state == CropState.Stage1 || _state == CropState.Stage2)
+    public bool CanFertilize() => CanWater
         && _fertilizerType == FertilizerType.None;
 
-    public bool Fertilize(IFertilizerStrategy strategy)
+    public bool Fertilize(FertilizerDefinition fertilizer)
     {
-        if (!CanFertilize() || strategy == null || strategy.Type == FertilizerType.None) return false;
-        float bonus = strategy.GetYieldBonus();
-        float remaining = strategy.AdjustRemainingTime(_growthTimeRemaining);
-        float multiplier = strategy.AdjustRemainingTime(1f);
-        if (!PlantTime.IsValid(bonus) || !PlantTime.IsValid(remaining) || remaining <= 0
-            || !PlantTime.IsValid(multiplier) || multiplier <= 0 || multiplier > 1
-            || (strategy.Type != FertilizerType.YieldBoost && strategy.Type != FertilizerType.GrowthBoost))
-            return false;
-        _fertilizerType = strategy.Type;
-        _yieldBonus = bonus;
-        _growthTimeRemaining = remaining;
-        _pendingStageTimeMultiplier = multiplier;
+        if(!CanFertilize() || fertilizer==null)return false;
+        float remaining=_growthTimeRemaining*fertilizer.TimeMultiplier;
+        if(!PlantTime.IsValid(remaining) || remaining<=0)return false;
+        // Chỉ nhận một loại phân trong cả đời cây, kể cả cây thu hoạch nhiều lần.
+        _fertilizerType=fertilizer.Type;
+        _yieldBonus=fertilizer.YieldBonus;
+        _growthTimeRemaining=remaining;
+        _pendingStageTimeMultiplier=fertilizer.TimeMultiplier;
         return true;
     }
 
     public void UpdateGrowth(float deltaTime)
     {
         PlantTime.ValidateDelta(deltaTime);
-        // Consume overflow in the next state, so a long tick cannot skip drought or rot.
+        // Tiêu thụ cả phần thời gian dư ở trạng thái kế tiếp để không bỏ qua hạn hoặc thối cây.
         while (deltaTime > 0)
         {
             if (_state == CropState.Dead || _state == CropState.Harvested) return;
@@ -74,6 +75,7 @@ public abstract class Crop
                 if (_ripeElapsedTime >= _definition.RotThreshold) _state = CropState.Dead;
                 return;
             }
+            // Chưa tưới thì cây dừng lớn, nhưng thời gian chịu hạn vẫn tăng.
             if (_wateringCount == 0)
             {
                 _waterDeprivationElapsedTime += deltaTime;
@@ -107,6 +109,7 @@ public abstract class Crop
 
     public int CalculateYield()
     {
+        // Tăng/giảm đều tính trên năng suất gốc. Đuôi 0,5 được làm tròn ngẫu nhiên.
         double amount = _definition.BaseYield * (1d + _yieldBonus - (_hasDroughtPenalty ? 0.25d : 0));
         if (amount > int.MaxValue) throw new OverflowException("Crop yield exceeds item capacity.");
         int lower = (int)Math.Floor(amount);
@@ -119,11 +122,11 @@ public abstract class Crop
     protected void MarkHarvested() { _state = CropState.Harvested; }
     protected void BeginRegrowth()
     {
-        _state = CropState.Stage2;
+        _state = CropState.Regrowing;
         _wateringCount = 0;
         _waterDeprivationElapsedTime = 0;
         _ripeElapsedTime = 0;
         _growthTimeRemaining = _definition.RegrowthDuration * _pendingStageTimeMultiplier;
-        // Fertilizer and drought penalty belong to this plant's whole lifetime.
+        // Phân bón và hình phạt thiếu nước theo suốt đời cây, không được làm mới mỗi lần hái.
     }
 }

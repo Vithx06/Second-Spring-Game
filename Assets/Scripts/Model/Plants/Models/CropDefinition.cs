@@ -2,10 +2,16 @@ using System;
 
 public sealed class CropDefinition
 {
-    public string Id { get; }
+    // Enum xác định loại cây; Name chỉ dùng để hiển thị tiếng Việt.
+    public CropType Type { get; }
+    public ItemType SeedItem { get; }
+    public ItemType ProductItem { get; }
+
+    // Cầu nối cho View và bản lưu cũ; logic mới dùng Type, SeedItem và ProductItem.
+    public string Id => CropIdentifiers.GetId(Type);
     public string Name { get; }
-    public string SeedItemId { get; }
-    public string ProductItemId { get; }
+    public string SeedItemId => ItemIdentifiers.GetId(SeedItem);
+    public string ProductItemId => ItemIdentifiers.GetId(ProductItem);
     public int BaseYield { get; }
     public float Stage1Duration { get; }
     public float Stage2Duration { get; }
@@ -16,15 +22,15 @@ public sealed class CropDefinition
     public HarvestType HarvestType { get; }
     public float RegrowthDuration { get; }
 
-    // All durations use the same unit as FarmingService.OnTimeElapsed.
-    public CropDefinition(string id, string name, string seedItemId, string productItemId,
+    // Các khoảng thời gian đều tính bằng giây trong game, không phải giây thực.
+    public CropDefinition(CropType type, string name, ItemType seedItem, ItemType productItem,
         int baseYield, float stage1Duration, float stage2Duration,
         float droughtPenaltyThreshold, float droughtDeathThreshold, float rotThreshold,
         CropCategory category = CropCategory.FieldCrop,
         HarvestType harvestType = HarvestType.SingleHarvest, float regrowthDuration = 1f)
     {
-        if (string.IsNullOrWhiteSpace(id) || string.IsNullOrWhiteSpace(name)
-            || string.IsNullOrWhiteSpace(seedItemId) || string.IsNullOrWhiteSpace(productItemId))
+        if (!Enum.IsDefined(typeof(CropType),type) || string.IsNullOrWhiteSpace(name)
+            || !Enum.IsDefined(typeof(ItemType),seedItem) || !Enum.IsDefined(typeof(ItemType),productItem))
             throw new ArgumentException("Crop identifiers and name are required.");
         if (baseYield < 1) throw new ArgumentOutOfRangeException(nameof(baseYield));
         PlantTime.RequirePositive(stage1Duration, nameof(stage1Duration));
@@ -37,7 +43,7 @@ public sealed class CropDefinition
             throw new ArgumentException("Death threshold must exceed penalty threshold.");
         if (!Enum.IsDefined(typeof(CropCategory), category) || !Enum.IsDefined(typeof(HarvestType), harvestType))
             throw new ArgumentException("Unknown crop classification.");
-        Id=id; Name=name; SeedItemId=seedItemId; ProductItemId=productItemId;
+        Type=type; Name=name; SeedItem=seedItem; ProductItem=productItem;
         BaseYield=baseYield; Stage1Duration=stage1Duration; Stage2Duration=stage2Duration;
         DroughtPenaltyThreshold=droughtPenaltyThreshold; DroughtDeathThreshold=droughtDeathThreshold;
         RotThreshold=rotThreshold; Category=category; HarvestType=harvestType; RegrowthDuration=regrowthDuration;
@@ -49,6 +55,7 @@ public sealed class CropDefinition
         {
             case CropState.Stage1: return Stage1Duration;
             case CropState.Stage2: return Stage2Duration;
+            case CropState.Regrowing: return RegrowthDuration;
             default: throw new ArgumentOutOfRangeException(nameof(state));
         }
     }

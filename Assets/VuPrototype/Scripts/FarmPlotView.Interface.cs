@@ -195,13 +195,13 @@ public partial class FarmPlotView
         Label(958,239,275,46,c==null ? "Chọn thao tác bên dưới để bắt đầu." : "Đã tưới: "+c.WateringCount+" lần trong giai đoạn này",_small);
         if(ActionButton(new Rect(958,295,128,44),"Xới đất",_plot.CanTill())) Run(_service.Till(_plot));
         if(ActionButton(new Rect(1097,295,135,44),"Gieo hạt",_plot.CanPlant(),true)) Run(_service.Plant(_plot,_definitions[_selectedCrop]));
-        bool growing=c!=null && (c.State==CropState.Stage1 || c.State==CropState.Stage2);
+        bool growing=c!=null && c.CanWater;
         if(ActionButton(new Rect(958,351,128,44),"Tưới nước",growing,true)) Run(_service.Water(_plot));
         if(ActionButton(new Rect(1097,351,135,44),"Thu hoạch",c!=null && c.CanHarvest(),true)) Run(_service.Harvest(_plot));
         Label(958,418,275,25,"PHÂN BÓN · chọn một loại / cây",_small);
         bool canFertilize=c!=null && c.CanFertilize();
-        if(ActionButton(new Rect(958,452,274,44),"Năng suất +50%  ·  "+_inventory.GetQuantity("fertilizer.yield"),canFertilize)) Run(_service.Fertilize(_plot,"fertilizer.yield"));
-        if(ActionButton(new Rect(958,508,274,44),"Chín nhanh -25%  ·  "+_inventory.GetQuantity("fertilizer.growth"),canFertilize)) Run(_service.Fertilize(_plot,"fertilizer.growth"));
+        if(ActionButton(new Rect(958,452,274,44),"Năng suất +50%  ·  "+_inventory.GetQuantity("fertilizer.yield"),canFertilize)) Run(_service.Fertilize(_plot,ItemType.YieldBoostFertilizer));
+        if(ActionButton(new Rect(958,508,274,44),"Chín nhanh -25%  ·  "+_inventory.GetQuantity("fertilizer.growth"),canFertilize)) Run(_service.Fertilize(_plot,ItemType.GrowthBoostFertilizer));
         if(c!=null)
             Label(958,565,274,37,c.HasDroughtPenalty ? "Thiếu nước: đã mất 25% năng suất." : c.FertilizerType==FertilizerType.None ? "Cây chưa được bón phân." : "Cây đã được bón phân.",_small);
         if(ActionButton(new Rect(958,615,274,32),_showTestOptions ? "Ẩn tùy chọn thử" : "Tùy chọn thử",true)) _showTestOptions=!_showTestOptions;

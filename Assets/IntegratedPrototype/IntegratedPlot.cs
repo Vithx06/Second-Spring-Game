@@ -36,7 +36,7 @@ namespace SecondSpring.IntegratedPrototype
                 case FarmPlotStatus.ReadyToSow: soil = 2; break;
                 case FarmPlotStatus.HavePlant:
                     soil = crop.WateringCount > 0 ? 3 : 2;
-                    plant = crop.State == CropState.Stage1 ? 0 : crop.State == CropState.Stage2 ? 1 : 2;
+                    plant = crop.State == CropState.Stage1 ? 0 : (crop.State == CropState.Stage2 || crop.State == CropState.Regrowing) ? 1 : 2;
                     _cropIndex = System.Array.IndexOf(crops, crop.Definition);
                     break;
                 case FarmPlotStatus.HaveResidue:
@@ -53,7 +53,7 @@ namespace SecondSpring.IntegratedPrototype
         }
 
         internal bool NeedsWater => Model.CurrentCrop is Crop crop &&
-            (crop.State == CropState.Stage1 || crop.State == CropState.Stage2) && crop.WateringCount == 0;
+            crop.CanWater && crop.WateringCount == 0;
 
         internal string Status()
         {

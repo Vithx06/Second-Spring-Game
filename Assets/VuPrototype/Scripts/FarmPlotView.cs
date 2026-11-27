@@ -51,12 +51,8 @@ public partial class FarmPlotView : MonoBehaviour
             _inventory.TryAdd(item, 10);
         }
         _service = new FarmingService(_inventory, new[] { _plot }, _inventory,
-            new CropCreator[] { new SingleHarvestCropCreator(), new RegrowingCropCreator() },
-            new Dictionary<string, IFertilizerStrategy>
-            {
-                { "fertilizer.yield", new YieldBoostStrategy() },
-                { "fertilizer.growth", new GrowthBoostStrategy() }
-            });
+            new ICropCreator[] { new SingleHarvestCropCreator(), new RegrowingCropCreator() },
+            FertilizerDefinition.CreateDefaults());
         RefreshColor();
     }
 

@@ -19,7 +19,7 @@ public partial class FarmPlotView
         {
             int index=System.Array.FindIndex(_definitions,d=>d.Id==crop.Definition.Id);
             if(index>=0) _lastArtCrop=index;
-            return crop.State==CropState.Stage1 ? 0 : crop.State==CropState.Stage2 ? 1 : crop.State==CropState.Ripe ? 2 : 3;
+            return crop.State==CropState.Stage1 ? 0 : (crop.State==CropState.Stage2 || crop.State==CropState.Regrowing) ? 1 : crop.State==CropState.Ripe ? 2 : 3;
         }
         if(_plot.Status==FarmPlotStatus.HaveResidue)
             return _plot.ResidueType==ResidueType.RottenCrop ? 3 : 4;

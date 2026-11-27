@@ -37,7 +37,7 @@ public partial class FarmPlotView
                 Fill(new Rect(hit.x,hit.y,1,hit.height),Hex(0xBFA36A));
                 Fill(new Rect(hit.xMax-1,hit.y,1,hit.height),Hex(0x65452E));
                 Crop thirsty=_plot.CurrentCrop;
-                if(thirsty!=null && (thirsty.State==CropState.Stage1 || thirsty.State==CropState.Stage2) && thirsty.WateringCount==0)
+                if(thirsty!=null && thirsty.CanWater && thirsty.WateringCount==0)
                 {
                     float bob=Mathf.Sin(Time.unscaledTime*3+transform.position.x)*3;
                     GUI.DrawTexture(new Rect(hit.center.x-10,hit.y-25+bob,20,25),PlantToolIcons.Get(PlantToolIcons.Kind.Drop));
@@ -75,11 +75,11 @@ public partial class FarmPlotView
             Crop c=_plot.CurrentCrop;
             if(ToolButton(new Rect(818,584,100,76),"Xới",PlantToolIcons.Kind.Hoe,_plot.CanTill())) Run(_service.Till(_plot));
             if(ToolButton(new Rect(926,584,100,76),"Gieo",PlantToolIcons.Kind.Seed,_plot.CanPlant())) Run(_service.Plant(_plot,_definitions[_selectedCrop]));
-            if(ToolButton(new Rect(1034,584,100,76),"Tưới",PlantToolIcons.Kind.Water,c!=null && (c.State==CropState.Stage1 || c.State==CropState.Stage2))) Run(_service.Water(_plot));
+            if(ToolButton(new Rect(1034,584,100,76),"Tưới",PlantToolIcons.Kind.Water,c!=null && c.CanWater)) Run(_service.Water(_plot));
             if(ToolButton(new Rect(1142,584,100,76),"Thu hoạch",PlantToolIcons.Kind.Basket,c!=null && c.CanHarvest())) Run(_service.Harvest(_plot));
             bool fertilize=c!=null && c.CanFertilize();
-            if(ToolButton(new Rect(818,669,208,30),"Phân năng suất",PlantToolIcons.Kind.Yield,fertilize,true)) Run(_service.Fertilize(_plot,"fertilizer.yield"));
-            if(ToolButton(new Rect(1034,669,208,30),"Phân chín nhanh",PlantToolIcons.Kind.Growth,fertilize,true)) Run(_service.Fertilize(_plot,"fertilizer.growth"));
+            if(ToolButton(new Rect(818,669,208,30),"Phân năng suất",PlantToolIcons.Kind.Yield,fertilize,true)) Run(_service.Fertilize(_plot,ItemType.YieldBoostFertilizer));
+            if(ToolButton(new Rect(1034,669,208,30),"Phân chín nhanh",PlantToolIcons.Kind.Growth,fertilize,true)) Run(_service.Fertilize(_plot,ItemType.GrowthBoostFertilizer));
             var def=_definitions[_selectedCrop];
             Label(36,670,772,28,_message,_small);
         }
@@ -133,7 +133,7 @@ public partial class FarmPlotView
         {
             case PlantToolIcons.Kind.Hoe: return _plot.CanTill();
             case PlantToolIcons.Kind.Seed: return _plot.CanPlant();
-            case PlantToolIcons.Kind.Water: return crop!=null && (crop.State==CropState.Stage1 || crop.State==CropState.Stage2);
+            case PlantToolIcons.Kind.Water: return crop!=null && crop.CanWater;
             case PlantToolIcons.Kind.Basket: return crop!=null && crop.CanHarvest();
             case PlantToolIcons.Kind.Yield:
             case PlantToolIcons.Kind.Growth: return crop!=null && crop.CanFertilize();
@@ -151,8 +151,8 @@ public partial class FarmPlotView
                 Run(_service.Plant(_plot,_definitions[_selectedCrop]));break;
             case PlantToolIcons.Kind.Water: Run(_service.Water(_plot));break;
             case PlantToolIcons.Kind.Basket: Run(_service.Harvest(_plot));break;
-            case PlantToolIcons.Kind.Yield: Run(_service.Fertilize(_plot,"fertilizer.yield"));break;
-            case PlantToolIcons.Kind.Growth: Run(_service.Fertilize(_plot,"fertilizer.growth"));break;
+            case PlantToolIcons.Kind.Yield: Run(_service.Fertilize(_plot,ItemType.YieldBoostFertilizer));break;
+            case PlantToolIcons.Kind.Growth: Run(_service.Fertilize(_plot,ItemType.GrowthBoostFertilizer));break;
         }
     }
 

@@ -44,12 +44,8 @@ namespace SecondSpring.IntegratedPrototype
             Catalog = BuildCatalog();
             Market = new ShopFacade(Inventory, Wallet, Catalog);
             _farming = new FarmingService(Inventory, plots, Inventory,
-                new CropCreator[] { new SingleHarvestCropCreator(), new RegrowingCropCreator() },
-                new Dictionary<string, IFertilizerStrategy>
-                {
-                    { YieldFertilizer, new YieldBoostStrategy() },
-                    { GrowthFertilizer, new GrowthBoostStrategy() }
-                });
+                new ICropCreator[] { new SingleHarvestCropCreator(), new RegrowingCropCreator() },
+                FertilizerDefinition.CreateDefaults());
             Invitations = new MinigameManager(() => Game != null && !Game.IsFinished ? .5d : _random.NextDouble(),
                 CreateGame);
             Clock.Subscribe(_farming);
@@ -75,8 +71,8 @@ namespace SecondSpring.IntegratedPrototype
                 case CropTool.Seed: return _farming.Plant(plot, Crops[seed]);
                 case CropTool.Water: return _farming.Water(plot);
                 case CropTool.Harvest: return _farming.Harvest(plot);
-                case CropTool.Yield: return _farming.Fertilize(plot, YieldFertilizer);
-                case CropTool.Growth: return _farming.Fertilize(plot, GrowthFertilizer);
+                case CropTool.Yield: return _farming.Fertilize(plot, ItemType.YieldBoostFertilizer);
+                case CropTool.Growth: return _farming.Fertilize(plot, ItemType.GrowthBoostFertilizer);
                 default: return false;
             }
         }
