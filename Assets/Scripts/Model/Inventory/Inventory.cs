@@ -1,47 +1,53 @@
 using System;
 using System.Collections.Generic;
 
-// Shared inventory data used by farming and trading.
-public class Inventory : IInventory, IItemCatalog
+public class Inventory : IInventory,IItemCatalog
 {
-    private readonly Dictionary<string, ItemDefinition> _items = new Dictionary<string, ItemDefinition>();
-    private readonly Dictionary<string, int> _quantities = new Dictionary<string, int>();
-    public int Capacity { get; set; } = 100;
-    public void Register(ItemDefinition item) { _items.Add(item.Id, item); }
-    public ItemDefinition FindItem(string itemId) => itemId != null && _items.TryGetValue(itemId, out var item) ? item : null;
-    public int GetQuantity(string itemId) => itemId != null && _quantities.TryGetValue(itemId, out int amount) ? amount : 0;
+    private readonly Dictionary<ItemType,int> _items=new Dictionary<ItemType,int>();
+    private readonly IItemCatalog _catalog;
+    public int Capacity { get; }
+    public int UsedSlots => _items.Count;
+
+    public Inventory(IItemCatalog catalog,int capacity=100)
+    {
+        _catalog=catalog??throw new ArgumentNullException(nameof(catalog));
+        if(capacity<0)throw new ArgumentOutOfRangeException(nameof(capacity));
+        Capacity=capacity;
+    }
+
+    // Constructor/Register chỉ phục vụ các prototype cũ đang khai báo danh mục từng bước.
+    public Inventory(int capacity=100):this(new ItemCatalog(new ItemDefinition[0]),capacity) { }
+    public void Register(ItemDefinition item)
+    {
+        if(!(_catalog is ItemCatalog catalog))throw new InvalidOperationException("Catalog is not mutable.");
+        catalog.Register(item);
+    }
+    public ItemDefinition FindItem(ItemType type) => _catalog.FindItem(type);
+    public int GetQuantity(ItemType type) => _items.TryGetValue(type,out int quantity)?quantity:0;
     public IReadOnlyList<ItemStack> GetItems()
     {
-        var result = new List<ItemStack>();
-        foreach (var pair in _quantities)
-            if (pair.Value > 0) result.Add(new ItemStack(_items[pair.Key], pair.Value));
+        var result=new List<ItemStack>();
+        foreach(var pair in _items)result.Add(new ItemStack(_catalog.FindItem(pair.Key),pair.Value));
         return result.AsReadOnly();
     }
-    public bool CanAdd(ItemDefinition item, int quantity)
+    public virtual bool CanAdd(ItemType type,int quantity)
     {
-        if (item == null || quantity <= 0 || FindItem(item.Id) != item) return false;
-        long used = 0;
-        foreach (var pair in _quantities)
-        {
-            long amount = pair.Value;
-            if (pair.Key == item.Id) amount += quantity;
-            used += (amount + _items[pair.Key].MaxStackSize - 1) / _items[pair.Key].MaxStackSize;
-        }
-        if (!_quantities.ContainsKey(item.Id)) used += ((long)quantity + item.MaxStackSize - 1) / item.MaxStackSize;
-        return used <= Capacity && (long)GetQuantity(item.Id) + quantity <= int.MaxValue;
+        if(quantity<=0 || _catalog.FindItem(type)==null)return false;
+        if((long)GetQuantity(type)+quantity>int.MaxValue)return false;
+        // Theo luật kho: một ô giữ một loại; cộng thêm cùng loại không cần ô mới.
+        return _items.ContainsKey(type) || _items.Count<Capacity;
     }
-    public bool TryAdd(ItemDefinition item, int quantity)
+    public bool TryAdd(ItemType type,int quantity)
     {
-        if (!CanAdd(item, quantity)) return false;
-        _quantities[item.Id] = GetQuantity(item.Id) + quantity;
+        if(!CanAdd(type,quantity))return false;
+        _items[type]=GetQuantity(type)+quantity;
         return true;
     }
-    public bool TryRemove(string itemId, int quantity)
+    public bool TryRemove(ItemType type,int quantity)
     {
-        if (quantity <= 0 || GetQuantity(itemId) < quantity) return false;
-        int remaining = _quantities[itemId] - quantity;
-        if (remaining == 0) _quantities.Remove(itemId);
-        else _quantities[itemId] = remaining;
+        if(quantity<=0 || GetQuantity(type)<quantity)return false;
+        int remaining=_items[type]-quantity;
+        if(remaining==0)_items.Remove(type);else _items[type]=remaining;
         return true;
     }
 }

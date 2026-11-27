@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net10.0</TargetFramework><EnableDefaultCompileItems>false</EnableDefaultCompileItems></PropertyGroup>
 <ItemGroup>
-<Compile Include="../../Assets/Scripts/Shared/PlantContracts.cs" />
+<Compile Include="../../Assets/Scripts/Shared/*.cs" />
 <Compile Include="../../Assets/Scripts/Model/Inventory/*.cs" />
 <Compile Include="../../Assets/Scripts/Model/Economy/*.cs" />
 <Compile Include="../../Assets/Scripts/Model/Shop/*.cs" />

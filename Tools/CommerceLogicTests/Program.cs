@@ -23,10 +23,10 @@ Check(shop.Buy(seed.Id,0)==TradeResult.InvalidQuantity,"zero rejected");
 Check(shop.Buy(seed.Id,-2)==TradeResult.InvalidQuantity,"negative rejected");
 Check(shop.Buy("unknown",1)==TradeResult.ItemNotFound,"unknown rejected");
 Check(shop.Buy(seed.Id,int.MaxValue)==TradeResult.AmountOverflow,"buy overflow");
-inventory.Capacity=0;
-Check(shop.Buy(seed.Id,1)==TradeResult.InventoryFull,"full warehouse rejected");
+var full=new Inventory(new ItemCatalog(new[]{seed,rice}),0);var fullShop=new ShopFacade(full,wallet,catalog);
+Check(fullShop.Buy(seed.Id,1)==TradeResult.InventoryFull,"full warehouse rejected");
 Check(wallet.Balance==86 && inventory.GetQuantity(seed.Id)==3,"full warehouse unchanged");
-inventory.Capacity=100;
+
 var rich=new Wallet(int.MaxValue);
 Check(new ShopFacade(inventory,rich,catalog).Sell(rice.Id,1)==TradeResult.AmountOverflow,"wallet overflow");
 Check(inventory.GetQuantity(rice.Id)==3,"overflow preserves goods");
@@ -41,11 +41,11 @@ sealed class RejectAddInventory : IInventory
 {
     private readonly IInventory _inner;
     public RejectAddInventory(IInventory inner) {_inner=inner;}
-    public int GetQuantity(string id)=>_inner.GetQuantity(id);
+    public int GetQuantity(ItemType id)=>_inner.GetQuantity(id);
     public IReadOnlyList<ItemStack> GetItems()=>_inner.GetItems();
-    public bool CanAdd(ItemDefinition item,int quantity)=>true;
-    public bool TryAdd(ItemDefinition item,int quantity)=>false;
-    public bool TryRemove(string id,int quantity)=>_inner.TryRemove(id,quantity);
+    public bool CanAdd(ItemType item,int quantity)=>true;
+    public bool TryAdd(ItemType item,int quantity)=>false;
+    public bool TryRemove(ItemType id,int quantity)=>_inner.TryRemove(id,quantity);
 }
 sealed class RefuseEarnWallet : IWallet
 {

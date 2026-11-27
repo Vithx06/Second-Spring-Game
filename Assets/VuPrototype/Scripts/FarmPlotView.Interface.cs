@@ -208,8 +208,8 @@ public partial class FarmPlotView
         if(_showTestOptions)
         {
             Label(958,656,132,32,"Đồng hồ chung",_small);
-            if(ActionButton(new Rect(1100,656,132,32),_inventory.Capacity==0 ? "Kho: đầy" : "Kho: trống",true))
-                _inventory.Capacity=_inventory.Capacity==0 ? 100 : 0;
+            if(ActionButton(new Rect(1100,656,132,32),_inventory.SimulateFull ? "Kho: đầy" : "Kho: trống",true))
+                _inventory.SimulateFull=!_inventory.SimulateFull;
         }
         else Label(958,662,274,30,"Sinh trưởng theo ngày, giờ game.",_small);
     }
